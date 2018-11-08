@@ -63,3 +63,4 @@ typings/
 cjs
 .vscode
 jsconfig.json
+config/local.json
