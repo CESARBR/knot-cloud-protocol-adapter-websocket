@@ -1,0 +1,32 @@
+{
+  "name": "knot-cloud-protocol-adapter-websocket",
+  "version": "0.1.0",
+  "description": "KNoT Cloud WebSocket protocol adapter",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CESARBR/knot-cloud-protocol-adapter-websocket.git"
+  },
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "author": "KNoT",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "babel esm --out-dir cjs",
+    "start": "node cjs",
+    "start:watch": "nodemon --exec babel-node esm",
+    "start:debug": "babel-node debug esm"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.6"
+  }
+}
