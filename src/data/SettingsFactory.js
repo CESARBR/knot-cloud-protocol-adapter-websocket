@@ -4,6 +4,9 @@ import _ from 'lodash';
 
 import Settings from 'data/Settings';
 
+const serverSchema = Joi.object().keys({
+  port: Joi.number().port(),
+});
 const levels = ['error', 'warn', 'info', 'verbose', 'debug', 'silly'];
 const loggerSchema = Joi.object().keys({
   level: Joi.string().valid(levels).required(),
@@ -11,8 +14,15 @@ const loggerSchema = Joi.object().keys({
 
 class SettingsFactory {
   create() {
+    const server = this.loadServerSettings();
     const logger = this.loadLoggerSettings();
-    return new Settings(logger);
+    return new Settings(server, logger);
+  }
+
+  loadServerSettings() {
+    const server = config.get('server');
+    this.validate('server', server, serverSchema);
+    return server;
   }
 
   loadLoggerSettings() {
