@@ -1,5 +1,6 @@
 class Settings {
-  constructor(logger) {
+  constructor(server, logger) {
+    this.server = server;
     this.logger = logger;
   }
 }
