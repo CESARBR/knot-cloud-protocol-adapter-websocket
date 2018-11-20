@@ -7,6 +7,17 @@ import Settings from 'data/Settings';
 const serverSchema = Joi.object().keys({
   port: Joi.number().port(),
 });
+const meshbluSchema = Joi.object().keys({
+  namespace: Joi.string().required(),
+  redisUri: Joi.string().uri({ scheme: 'redis' }).required(),
+  firehoseRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
+  cacheRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
+  aliasServerUri: Joi.string().uri(),
+  jobTimeoutSeconds: Joi.number().positive().required(),
+  jobLogSampleRate: Joi.number().integer().min(0).required(),
+  requestQueueName: Joi.string().required(),
+  responseQueueName: Joi.string().required(),
+});
 const levels = ['error', 'warn', 'info', 'verbose', 'debug', 'silly'];
 const loggerSchema = Joi.object().keys({
   level: Joi.string().valid(levels).required(),
@@ -15,14 +26,21 @@ const loggerSchema = Joi.object().keys({
 class SettingsFactory {
   create() {
     const server = this.loadServerSettings();
+    const meshblu = this.loadMeshbluSettings();
     const logger = this.loadLoggerSettings();
-    return new Settings(server, logger);
+    return new Settings(server, meshblu, logger);
   }
 
   loadServerSettings() {
     const server = config.get('server');
     this.validate('server', server, serverSchema);
     return server;
+  }
+
+  loadMeshbluSettings() {
+    const meshblu = config.get('meshblu');
+    this.validate('meshblu', meshblu, meshbluSchema);
+    return meshblu;
   }
 
   loadLoggerSettings() {
