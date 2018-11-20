@@ -3,8 +3,12 @@ import shortid from 'shortid';
 import Client from 'network/Client';
 import ConnectionHandler from 'server/ConnectionHandler';
 
+import Authenticate from 'interactors/Authenticate';
+import AuthenticationController from 'controllers/AuthenticationController';
+
 class ConnectionHandlerFactory {
-  constructor(cloudFactory, loggerFactory) {
+  constructor(sessionStore, cloudFactory, loggerFactory) {
+    this.sessionStore = sessionStore;
     this.cloudFactory = cloudFactory;
     this.loggerFactory = loggerFactory;
   }
@@ -13,8 +17,16 @@ class ConnectionHandlerFactory {
     const client = new Client(socket);
     const cloud = this.cloudFactory.create();
     const id = shortid.generate();
-    const logger = this.loggerFactory.create(`ConnectionHandler-${id}`);
-    return new ConnectionHandler(client, cloud, logger);
+
+    const authenticate = new Authenticate(this.sessionStore, cloud);
+    const authenticationCtrlLogger = this.loggerFactory.create(`AuthenticationController-${id}`);
+    const authenticationController = new AuthenticationController(
+      authenticate,
+      authenticationCtrlLogger,
+    );
+
+    const handlerLogger = this.loggerFactory.create(`ConnectionHandler-${id}`);
+    return new ConnectionHandler(id, authenticationController, client, cloud, handlerLogger);
   }
 }
 
