@@ -1,6 +1,7 @@
 class ConnectionHandler {
-  constructor(client, logger) {
+  constructor(client, cloud, logger) {
     this.client = client;
+    this.cloud = cloud;
     this.logger = logger;
     this.handlers = {};
   }
@@ -9,6 +10,10 @@ class ConnectionHandler {
     this.client.on('message', this.onClientMessage.bind(this));
     this.client.on('close', this.onClientClose.bind(this));
     this.client.on('error', this.onClientError.bind(this));
+    this.cloud.on('message', this.onCloudMessage.bind(this));
+    this.cloud.on('config', this.onCloudConfig.bind(this));
+    this.cloud.on('data', this.onCloudData.bind(this));
+    await this.cloud.start();
     this.logger.info('Connected');
   }
 
@@ -34,10 +39,23 @@ class ConnectionHandler {
     this.logger.info('Disconnected');
     this.logger.debug(`Disconnect code: ${code}`);
     this.logger.debug(`Disconnect reason: ${reason}`);
+    this.cloud.close();
   }
 
   onClientError(error) {
     this.logger.error(error.message);
+  }
+
+  onCloudMessage(channel, message) {
+    this.logger.debug(`Message: ${channel} - ${message}`);
+  }
+
+  onCloudConfig(channel, message) {
+    this.logger.debug(`Config: ${channel} - ${message}`);
+  }
+
+  onCloudData(channel, message) {
+    this.logger.debug(`Data: ${channel} - ${message}`);
   }
 }
 
