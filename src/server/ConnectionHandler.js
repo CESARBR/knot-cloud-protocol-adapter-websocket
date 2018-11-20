@@ -1,9 +1,14 @@
 class ConnectionHandler {
-  constructor(client, cloud, logger) {
+  constructor(id, authenticationController, client, cloud, logger) {
+    this.id = id;
+    this.authenticationController = authenticationController;
     this.client = client;
     this.cloud = cloud;
     this.logger = logger;
-    this.handlers = {};
+    this.handlers = {
+      identity: this.createHandler(this.authenticationController.authenticate
+        .bind(this.authenticationController)),
+    };
   }
 
   async start() {
@@ -58,6 +63,10 @@ class ConnectionHandler {
 
   onCloudData(channel, message) {
     this.logger.debug(`Data: ${channel} - ${message}`);
+  }
+
+  createHandler(controllerMethod) {
+    return async data => controllerMethod({ id: this.id, data }, this.client);
   }
 }
 

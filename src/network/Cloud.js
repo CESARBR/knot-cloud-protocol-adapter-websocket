@@ -20,6 +20,35 @@ class Cloud {
     this.messenger.close();
   }
 
+  async authenticate(credentials) {
+    const request = {
+      metadata: {
+        auth: credentials,
+        jobType: 'Authenticate',
+      },
+    };
+    let response;
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      const badGatewayError = new Error('Bad Gateway');
+      badGatewayError.code = 502;
+      throw badGatewayError;
+    }
+
+    if (!response) {
+      const timeoutError = new Error('Gateway Timeout');
+      timeoutError.code = 504;
+      throw timeoutError;
+    }
+
+    if (response.metadata.code !== 204) {
+      const error = new Error(response.status);
+      error.code = response.code;
+      throw error;
+    }
+  }
+
   async send(request) {
     return new Promise((resolve, reject) => {
       this.requester.do(request, (error, response) => {
