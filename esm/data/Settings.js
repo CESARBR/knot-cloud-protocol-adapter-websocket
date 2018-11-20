@@ -1,6 +1,7 @@
 class Settings {
-  constructor(server, logger) {
+  constructor(server, meshblu, logger) {
     this.server = server;
+    this.meshblu = meshblu;
     this.logger = logger;
   }
 }
