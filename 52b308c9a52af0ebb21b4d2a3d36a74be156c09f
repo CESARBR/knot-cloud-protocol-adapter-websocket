@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c9847bd_17d2af56",
+        "filename": "esm/network/Cloud.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-11-22T18:46:08Z",
+      "side": 1,
+      "message": "`response.metadata.status`",
+      "range": {
+        "startLine": 46,
+        "startChar": 30,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "52b308c9a52af0ebb21b4d2a3d36a74be156c09f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03c7b289_96794663",
+        "filename": "esm/network/Cloud.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-11-22T18:46:08Z",
+      "side": 1,
+      "message": "`response.metadata.code`",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "52b308c9a52af0ebb21b4d2a3d36a74be156c09f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
