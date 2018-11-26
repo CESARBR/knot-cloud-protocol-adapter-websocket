@@ -1,13 +1,16 @@
 class ConnectionHandler {
-  constructor(id, authenticationController, client, cloud, logger) {
+  constructor(id, authenticationController, deviceController, client, cloud, logger) {
     this.id = id;
     this.authenticationController = authenticationController;
+    this.deviceController = deviceController;
     this.client = client;
     this.cloud = cloud;
     this.logger = logger;
     this.handlers = {
       identity: this.createHandler(this.authenticationController.authenticate
         .bind(this.authenticationController)),
+      registerDevice: this.createHandler(this.deviceController.register
+        .bind(this.deviceController)),
     };
   }
 
