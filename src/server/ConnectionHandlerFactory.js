@@ -6,6 +6,9 @@ import ConnectionHandler from 'server/ConnectionHandler';
 import Authenticate from 'interactors/Authenticate';
 import AuthenticationController from 'controllers/AuthenticationController';
 
+import RegisterDevice from 'interactors/RegisterDevice';
+import DeviceController from 'controllers/DeviceController';
+
 class ConnectionHandlerFactory {
   constructor(sessionStore, cloudFactory, loggerFactory) {
     this.sessionStore = sessionStore;
@@ -25,8 +28,22 @@ class ConnectionHandlerFactory {
       authenticationCtrlLogger,
     );
 
+    const registerDevice = new RegisterDevice(this.sessionStore, cloud);
+    const deviceCtrlLogger = this.loggerFactory.create(`DeviceController-${id}`);
+    const deviceController = new DeviceController(
+      registerDevice,
+      deviceCtrlLogger,
+    );
+
     const handlerLogger = this.loggerFactory.create(`ConnectionHandler-${id}`);
-    return new ConnectionHandler(id, authenticationController, client, cloud, handlerLogger);
+    return new ConnectionHandler(
+      id,
+      authenticationController,
+      deviceController,
+      client,
+      cloud,
+      handlerLogger,
+    );
   }
 }
 
