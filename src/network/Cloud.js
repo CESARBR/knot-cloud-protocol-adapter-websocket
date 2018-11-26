@@ -49,6 +49,69 @@ class Cloud {
     }
   }
 
+  async registerDevice(device) {
+    const request = {
+      metadata: {
+        jobType: 'RegisterDevice',
+      },
+      data: device,
+    };
+    let response;
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      const badGatewayError = new Error('Bad Gateway');
+      badGatewayError.code = 502;
+      throw badGatewayError;
+    }
+
+    if (!response) {
+      const timeoutError = new Error('Gateway Timeout');
+      timeoutError.code = 504;
+      throw timeoutError;
+    }
+
+    if (response.metadata.code !== 201) {
+      const error = new Error(response.metadata.status);
+      error.code = response.metadata.code;
+      throw error;
+    }
+
+    return JSON.parse(response.rawData);
+  }
+
+  async getDevice(credentials, uuid) {
+    const request = {
+      metadata: {
+        jobType: 'GetDevice',
+        auth: credentials,
+        toUuid: uuid,
+      },
+    };
+    let response;
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      const badGatewayError = new Error('Bad Gateway');
+      badGatewayError.code = 502;
+      throw badGatewayError;
+    }
+
+    if (!response) {
+      const timeoutError = new Error('Gateway Timeout');
+      timeoutError.code = 504;
+      throw timeoutError;
+    }
+
+    if (response.metadata.code !== 200) {
+      const error = new Error(response.metadata.status);
+      error.code = response.metadata.code;
+      throw error;
+    }
+
+    return JSON.parse(response.rawData);
+  }
+
   async send(request) {
     return new Promise((resolve, reject) => {
       this.requester.do(request, (error, response) => {
