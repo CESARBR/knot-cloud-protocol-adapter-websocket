@@ -1,6 +1,7 @@
 class DeviceController {
-  constructor(registerInteractor, logger) {
+  constructor(registerInteractor, devicesInteractor, logger) {
     this.registerInteractor = registerInteractor;
+    this.devicesInteractor = devicesInteractor;
     this.logger = logger;
   }
 
@@ -11,6 +12,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed registering device (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async list(request, responseHandler) {
+    try {
+      const response = await this.devicesInteractor.execute(request.id);
+      this.logger.info('Devices obtained');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed to get devices (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
