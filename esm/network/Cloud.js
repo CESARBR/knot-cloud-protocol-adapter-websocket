@@ -20,6 +20,12 @@ class Cloud {
     this.messenger.close();
   }
 
+  async handleError(message, code) {
+    const error = new Error(message);
+    error.code = code;
+    throw error;
+  }
+
   async authenticate(credentials) {
     const request = {
       metadata: {
@@ -47,6 +53,60 @@ class Cloud {
       error.code = response.code;
       throw error;
     }
+  }
+
+  async registerDevice(device) {
+    const request = {
+      metadata: {
+        jobType: 'RegisterDevice',
+      },
+      rawData: JSON.stringify(device),
+    };
+    let response;
+
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      this.handleError('Bad Gateway', 502);
+    }
+
+    if (!response) {
+      this.handleError('Gateway Timeout', 504);
+    }
+
+    if (response.metadata.code !== 201) {
+      this.handleError(response.metadata.status, response.metadata.code);
+    }
+
+    return JSON.parse(response.rawData);
+  }
+
+  async getDevice(uuid, credentials) {
+    const request = {
+      metadata: {
+        jobType: 'GetDevice',
+        auth: credentials,
+        toUuid: uuid,
+        fromUuid: credentials.uuid,
+      },
+    };
+    let response;
+
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      this.handleError('Bad Gateway', 502);
+    }
+
+    if (!response) {
+      this.handleError('Gateway Timeout', 504);
+    }
+
+    if (response.metadata.code !== 200) {
+      this.handleError(response.metadata.status, response.metadata.code);
+    }
+
+    return JSON.parse(response.rawData);
   }
 
   async send(request) {
