@@ -109,6 +109,33 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async getDevices(credentials) {
+    const request = {
+      metadata: {
+        jobType: 'SearchDevices',
+        auth: credentials,
+        fromUuid: credentials.uuid,
+      },
+    };
+    let response;
+
+    try {
+      response = await this.send(request);
+    } catch (error) {
+      this.handleError('Bad Gateway', 502);
+    }
+
+    if (!response) {
+      this.handleError('Gateway Timeout', 504);
+    }
+
+    if (response.metadata.code !== 200) {
+      this.handleError(response.metadata.status, response.metadata.code);
+    }
+
+    return JSON.parse(response.rawData);
+  }
+
   async send(request) {
     return new Promise((resolve, reject) => {
       this.requester.do(request, (error, response) => {
