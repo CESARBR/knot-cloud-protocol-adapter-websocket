@@ -7,6 +7,7 @@ import Authenticate from 'interactors/Authenticate';
 import AuthenticationController from 'controllers/AuthenticationController';
 
 import RegisterDevice from 'interactors/RegisterDevice';
+import GetDevices from 'interactors/GetDevices';
 import DeviceController from 'controllers/DeviceController';
 
 class ConnectionHandlerFactory {
@@ -29,9 +30,11 @@ class ConnectionHandlerFactory {
     );
 
     const registerDevice = new RegisterDevice(this.sessionStore, cloud);
+    const getDevices = new GetDevices(this.sessionStore, cloud);
     const deviceCtrlLogger = this.loggerFactory.create(`DeviceController-${id}`);
     const deviceController = new DeviceController(
       registerDevice,
+      getDevices,
       deviceCtrlLogger,
     );
 
