@@ -1,0 +1,87 @@
+class RegisterDevice {
+  constructor(sessionStore, cloud) {
+    this.sessionStore = sessionStore;
+    this.cloud = cloud;
+  }
+
+  async execute(id, properties) {
+    const session = this.sessionStore.get(id);
+    if (!session) {
+      this.throwError('Unauthorized', 401);
+    }
+
+    const device = await this.createDevice(properties, session);
+    const registeredDevice = await this.cloud.registerDevice(device);
+    return { type: 'registered', data: registeredDevice };
+  }
+
+  async createDevice(properties, session) {
+    const { name, type } = properties;
+    if (!type) {
+      this.throwError('\'type\' is required', 400);
+    }
+
+    let device = {
+      type,
+      metadata: {
+        name: name || '',
+      },
+    };
+
+    if (type === 'gateway' || type === 'app') {
+      device = await this.createAppOrGatewayDevice(device, session);
+    } else {
+      this.throwError('\'type\' should be \'gateway\' or \'app\'', 400);
+    }
+
+    return device;
+  }
+
+  async createAppOrGatewayDevice(basicDevice, session) {
+    const device = basicDevice;
+    if (!await this.isSessionOwnerUser(session)) {
+      this.throwError('Device owner isn\'t a user', 400);
+    }
+
+    device.meshblu = {
+      version: '2.0.0',
+      whitelists: this.generateWhitelists(session.credentials.uuid),
+    };
+
+    return device;
+  }
+
+  async isSessionOwnerUser(session) {
+    const deviceOwner = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
+    return deviceOwner.type === 'knot:user';
+  }
+
+  throwError(message, code) {
+    const error = new Error(message);
+    error.code = code;
+    throw error;
+  }
+
+  generateWhitelists(ownerUuid) {
+    return {
+      discover: {
+        as: [{
+          uuid: ownerUuid,
+        }],
+        view: [{
+          uuid: ownerUuid,
+        }],
+      },
+      configure: {
+        as: [{
+          uuid: ownerUuid,
+        }],
+        update: [{
+          uuid: ownerUuid,
+        }],
+      },
+    };
+  }
+}
+
+export default RegisterDevice;
