@@ -61,6 +61,21 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async getDevices(credentials, query) {
+    const request = {
+      metadata: {
+        jobType: 'SearchDevices',
+        auth: credentials,
+        fromUuid: credentials.uuid,
+      },
+      data: query,
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 200);
+    return JSON.parse(response.rawData);
+  }
+
   async sendRequest(request) {
     let response;
 
