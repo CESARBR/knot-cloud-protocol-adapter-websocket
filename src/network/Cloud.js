@@ -27,25 +27,65 @@ class Cloud {
         jobType: 'Authenticate',
       },
     };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 204);
+    return JSON.parse(response.rawData);
+  }
+
+  async registerDevice(device) {
+    const request = {
+      metadata: {
+        jobType: 'RegisterDevice',
+      },
+      data: device,
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 201);
+    return JSON.parse(response.rawData);
+  }
+
+  async getDevice(uuid, credentials) {
+    const request = {
+      metadata: {
+        jobType: 'GetDevice',
+        auth: credentials,
+        toUuid: uuid,
+        fromUuid: credentials.uuid,
+      },
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 200);
+    return JSON.parse(response.rawData);
+  }
+
+  async sendRequest(request) {
     let response;
+
     try {
       response = await this.send(request);
     } catch (error) {
-      const badGatewayError = new Error('Bad Gateway');
-      badGatewayError.code = 502;
-      throw badGatewayError;
+      this.generateError('Bad Gateway', 502);
     }
 
+    return response;
+  }
+
+  generateError(message, code) {
+    const error = new Error(message);
+    error.code = code;
+    throw error;
+  }
+
+  checkResponseHasError(response, successCode) {
     if (!response) {
-      const timeoutError = new Error('Gateway Timeout');
-      timeoutError.code = 504;
-      throw timeoutError;
+      this.generateError('Gateway Timeout', 504);
     }
 
-    if (response.metadata.code !== 204) {
-      const error = new Error(response.metadata.status);
-      error.code = response.metadata.code;
-      throw error;
+    if (response.metadata.code !== successCode) {
+      this.generateError(response.metadata.status, response.metadata.code);
     }
   }
 
