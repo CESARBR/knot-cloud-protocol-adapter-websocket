@@ -45,6 +45,22 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async updateDevice(uuid, properties, credentials) {
+    const request = {
+      metadata: {
+        jobType: 'FindAndUpdateDevice',
+        auth: credentials,
+        toUuid: uuid,
+      },
+      data: {
+        $set: properties,
+      },
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 200);
+  }
+
   async getDevice(uuid, credentials) {
     const request = {
       metadata: {
