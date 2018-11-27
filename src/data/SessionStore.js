@@ -10,6 +10,10 @@ class SessionStore {
   save(id, session) {
     this.sessions[id] = session;
   }
+
+  remove(id) {
+    delete this.sessions[id];
+  }
 }
 
 export default SessionStore;
