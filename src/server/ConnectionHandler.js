@@ -11,6 +11,8 @@ class ConnectionHandler {
         .bind(this.authenticationController)),
       registerDevice: this.createHandler(this.deviceController.register
         .bind(this.deviceController)),
+      updateMetadata: this.createHandler(this.deviceController.updateMetadata
+        .bind(this.deviceController)),
       devices: this.createHandler(this.deviceController.list
         .bind(this.deviceController)),
     };
