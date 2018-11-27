@@ -10,6 +10,7 @@ import RegisterDevice from 'interactors/RegisterDevice';
 import UpdateDevice from 'interactors/UpdateDevice';
 import GetDevices from 'interactors/GetDevices';
 import UnregisterDevice from 'interactors/UnregisterDevice';
+import UpdateSchema from 'interactors/UpdateSchema';
 import DeviceController from 'controllers/DeviceController';
 
 class ConnectionHandlerFactory {
@@ -35,12 +36,14 @@ class ConnectionHandlerFactory {
     const updateDevice = new UpdateDevice(this.sessionStore, cloud);
     const getDevices = new GetDevices(this.sessionStore, cloud);
     const unregisterDevice = new UnregisterDevice(this.sessionStore, cloud);
+    const updateSchema = new UpdateSchema(this.sessionStore, cloud);
     const deviceCtrlLogger = this.loggerFactory.create(`DeviceController-${id}`);
     const deviceController = new DeviceController(
       registerDevice,
       updateDevice,
       getDevices,
       unregisterDevice,
+      updateSchema,
       deviceCtrlLogger,
     );
 
