@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class SessionStore {
   constructor() {
     this.sessions = {};
@@ -9,6 +11,11 @@ class SessionStore {
 
   save(id, session) {
     this.sessions[id] = session;
+  }
+
+  removeById(deviceId) {
+    const id = _.findKey(this.sessions, i => i.credentials.uuid === deviceId);
+    delete this.sessions[id];
   }
 }
 
