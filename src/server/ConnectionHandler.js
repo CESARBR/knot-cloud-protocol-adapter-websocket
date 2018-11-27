@@ -15,6 +15,8 @@ class ConnectionHandler {
         .bind(this.deviceController)),
       devices: this.createHandler(this.deviceController.list
         .bind(this.deviceController)),
+      unregister: this.createHandler(this.deviceController.unregister
+        .bind(this.deviceController)),
     };
   }
 
