@@ -1,10 +1,11 @@
 class DeviceController {
   constructor(registerInteractor, updateInteractor, devicesInteractor,
-    unregisterInteractor, logger) {
+    unregisterInteractor, updateSchemaInteractor, logger) {
     this.registerInteractor = registerInteractor;
     this.updateInteractor = updateInteractor;
     this.devicesInteractor = devicesInteractor;
     this.unregisterInteractor = unregisterInteractor;
+    this.updateSchemaInteractor = updateSchemaInteractor;
     this.logger = logger;
   }
 
@@ -61,6 +62,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed unregistering (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async updateSchema(request, responseHandler) {
+    try {
+      const response = await this.updateSchemaInteractor.execute(request.id, request.data);
+      this.logger.info('Update Schema');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in update schema (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
