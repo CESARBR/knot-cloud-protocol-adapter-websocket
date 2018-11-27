@@ -1,6 +1,7 @@
 class DeviceController {
-  constructor(registerInteractor, devicesInteractor, logger) {
+  constructor(registerInteractor, updateInteractor, devicesInteractor, logger) {
     this.registerInteractor = registerInteractor;
+    this.updateInteractor = updateInteractor;
     this.devicesInteractor = devicesInteractor;
     this.logger = logger;
   }
@@ -12,6 +13,24 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed registering device (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async updateMetadata(request, responseHandler) {
+    try {
+      const response = await this.updateInteractor.execute(
+        request.id,
+        request.data.id,
+        { metadata: request.data.metadata },
+      );
+      this.logger.info('Device metadata updated');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed updating device metadata (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
