@@ -1,8 +1,15 @@
 class DeviceController {
-  constructor(registerInteractor, updateMetadataInteractor, devicesInteractor, logger) {
-    this.registerInteractor = registerInteractor;
+  constructor(
+    registerInteractor,
+    updateMetadataInteractor,
+    devicesInteractor,
+    unregisterInteractor,
+    logger,
+  ) {
     this.updateMetadataInteractor = updateMetadataInteractor;
+    this.registerInteractor = registerInteractor;
     this.devicesInteractor = devicesInteractor;
+    this.unregisterInteractor = unregisterInteractor;
     this.logger = logger;
   }
 
@@ -41,6 +48,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed to get devices (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async unregister(request, responseHandler) {
+    try {
+      const response = await this.unregisterInteractor.execute(request.id, request.data);
+      this.logger.info('Unregister');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed unregistering (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,

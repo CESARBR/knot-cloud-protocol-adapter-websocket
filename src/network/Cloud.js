@@ -89,6 +89,21 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async unregister(credentials, data) {
+    const request = {
+      metadata: {
+        jobType: 'UnregisterDevice',
+        toUuid: data.uuid,
+        auth: credentials,
+      },
+      data,
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 200);
+    return JSON.parse(response.rawData);
+  }
+
   async sendRequest(request) {
     let response;
 
