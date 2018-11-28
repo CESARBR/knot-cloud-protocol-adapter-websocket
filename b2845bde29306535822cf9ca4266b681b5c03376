@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ca7d8ca_5452fd82",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-11-28T23:32:11Z",
+      "side": 1,
+      "message": "`response.metadata.status`",
+      "range": {
+        "startLine": 46,
+        "startChar": 30,
+        "endLine": 46,
+        "endChar": 45
+      },
+      "revId": "b2845bde29306535822cf9ca4266b681b5c03376",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "489c91f6_48718f09",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-11-28T23:32:11Z",
+      "side": 1,
+      "message": "`response.metadata.code`",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "b2845bde29306535822cf9ca4266b681b5c03376",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
