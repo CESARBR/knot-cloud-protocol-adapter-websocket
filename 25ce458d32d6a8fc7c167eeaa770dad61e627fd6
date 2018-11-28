@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "0c895540_cb214e88",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-11-28T17:33:07Z",
+      "side": 1,
+      "message": "It is not creating. It\u0027s adding whitelists.\nRecommendations: addWhiteListsIfAuthorized\nOr put the validation if is user out this function and the name becomes addWhiteLists\n\nWhat do you think?",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "25ce458d32d6a8fc7c167eeaa770dad61e627fd6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7f4857e_f5f12fb6",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 3
@@ -40,6 +63,29 @@
         "startLine": 45,
         "startChar": 53,
         "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "25ce458d32d6a8fc7c167eeaa770dad61e627fd6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0e5019a_673098d7",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-11-28T17:33:07Z",
+      "side": 1,
+      "message": "session.credentials.uuid",
+      "range": {
+        "startLine": 50,
+        "startChar": 42,
+        "endLine": 50,
         "endChar": 54
       },
       "revId": "25ce458d32d6a8fc7c167eeaa770dad61e627fd6",
