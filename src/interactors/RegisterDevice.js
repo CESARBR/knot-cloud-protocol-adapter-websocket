@@ -25,6 +25,8 @@ class RegisterDevice {
 
     if (type === 'gateway' || type === 'app') {
       device = this.createAppOrGatewayDevice(device, session);
+    } else if (type === 'thing') {
+      device = this.createThingDevice(device, session);
     }
 
     return device;
@@ -39,6 +41,22 @@ class RegisterDevice {
     };
   }
 
+  async createThingDevice(basicDevice, session) {
+    const device = basicDevice;
+    if (!await this.sessionOwnerIsGateway(session)) {
+      this.generateError('Device owner isn\'t a gateway');
+    }
+    const uuidList = await this.getGatewayWhiteList(session);
+    uuidList.push({ uuid: session.credentials.uuid });
+
+    device.meshblu = {
+      version: '2.0.0',
+      whitelists: this.generateWhitelists(uuidList),
+    };
+
+    return device;
+  }
+
   async createAppOrGatewayDevice(basicDevice, session) {
     const device = basicDevice;
     if (!await this.sessionOwnerIsUser(session)) {
@@ -47,10 +65,24 @@ class RegisterDevice {
 
     device.meshblu = {
       version: '2.0.0',
-      whitelists: this.generateWhitelists(session.credentials.uuid),
+      whitelists: this.generateWhitelists([{ uuid: session.credentials.uuid }]),
     };
 
     return device;
+  }
+
+  async getGatewayWhiteList(session) {
+    const deviceOwner = await this.cloud.getDevice(session.credentials.uuid, session.credentials);
+    const { whitelists } = deviceOwner.meshblu;
+    if (whitelists) {
+      return whitelists.discover.view;
+    }
+    throw this.generateError('Unathorized whitelists', 404);
+  }
+
+  async sessionOwnerIsGateway(session) {
+    const deviceOwner = await this.cloud.getDevice(session.credentials.uuid, session.credentials);
+    return deviceOwner.type === 'gateway';
   }
 
   async sessionOwnerIsUser(session) {
@@ -64,23 +96,19 @@ class RegisterDevice {
     throw error;
   }
 
-  generateWhitelists(uuid) {
+  generateWhitelists(uuids) {
     return {
       discover: {
-        as: [{
-          uuid,
-        }],
-        view: [{
-          uuid,
-        }],
+        as:
+          uuids,
+        view:
+          uuids,
       },
       configure: {
-        as: [{
-          uuid,
-        }],
-        update: [{
-          uuid,
-        }],
+        as:
+          uuids,
+        update:
+          uuids,
       },
     };
   }
