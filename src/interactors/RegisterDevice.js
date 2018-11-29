@@ -1,3 +1,5 @@
+import Joi from 'joi';
+
 class RegisterDevice {
   constructor(sessionStore, cloud) {
     this.sessionStore = sessionStore;
@@ -16,20 +18,46 @@ class RegisterDevice {
   }
 
   async createDevice(properties, session) {
-    const { name, type } = properties;
+    const { name, type, id } = properties;
+    let device;
     if (!type) {
       this.throwError('\'type\' is required', 400);
     }
 
-    let device;
-
     if (type === 'gateway' || type === 'app') {
       device = await this.createAppOrGatewayDevice(session, name, type);
+    } else if (type === 'thing') {
+      this.validateId(id);
+      device = await this.createThingDevice(session, name, type, id);
     } else {
-      this.throwError('\'type\' should be \'gateway\' or \'app\'', 400);
+      this.throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
     }
 
     return device;
+  }
+
+  async createThingDevice(session, name, type, id) {
+    const device = this.createBasicDevice(name, type, id);
+    if (!(await this.sessionOwnerIsGateway(session)
+          || await this.isSessionOwnerUser(session))) {
+      this.generateError('Session unauthorized', 401);
+    }
+    const uuidList = await this.getGatewayWhiteList(session);
+    uuidList.push({ uuid: session.credentials.uuid });
+
+    device.meshblu = {
+      version: '2.0.0',
+      whitelists: this.generateWhitelists(uuidList),
+    };
+
+    return device;
+  }
+
+  validateId(id) {
+    const { error } = Joi.validate(id, Joi.string().length(16).hex().required());
+    if (error) {
+      this.throwError(error, 400);
+    }
   }
 
   async createAppOrGatewayDevice(session, name, type) {
@@ -40,19 +68,34 @@ class RegisterDevice {
     const device = this.createBasicDevice(name, type);
     device.meshblu = {
       version: '2.0.0',
-      whitelists: this.generateWhitelists(session.credentials.uuid),
+      whitelists: this.generateWhitelists([{ uuid: session.credentials.uuid }]),
     };
 
     return device;
   }
 
-  createBasicDevice(name, type) {
+  createBasicDevice(name, type, id) {
     return {
       type,
+      id,
       metadata: {
         name: name || '',
       },
     };
+  }
+
+  async getGatewayWhiteList(session) {
+    const deviceOwner = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
+    const { whitelists } = deviceOwner.meshblu;
+    if (whitelists) {
+      return whitelists.discover.view;
+    }
+    throw this.generateError('Unathorized whitelists', 404);
+  }
+
+  async sessionOwnerIsGateway(session) {
+    const deviceOwner = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
+    return deviceOwner.type === 'gateway';
   }
 
   async isSessionOwnerUser(session) {
@@ -66,23 +109,15 @@ class RegisterDevice {
     throw error;
   }
 
-  generateWhitelists(ownerUuid) {
+  generateWhitelists(uuids) {
     return {
       discover: {
-        as: [{
-          uuid: ownerUuid,
-        }],
-        view: [{
-          uuid: ownerUuid,
-        }],
+        as: uuids,
+        view: uuids,
       },
       configure: {
-        as: [{
-          uuid: ownerUuid,
-        }],
-        update: [{
-          uuid: ownerUuid,
-        }],
+        as: uuids,
+        update: uuids,
       },
     };
   }
