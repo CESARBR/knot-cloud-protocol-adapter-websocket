@@ -14,7 +14,37 @@ class RegisterDevice {
 
     const device = await this.createDevice(properties, session);
     const registeredDevice = await this.cloud.registerDevice(device);
+    await this.updateDevicesWhitelists(registeredDevice, session);
     return { type: 'registered', data: registeredDevice };
+  }
+
+  async updateDevicesWhitelists(device, session) {
+    if (device.type === 'app') {
+      await this.updateWhitelistByType(session, 'gateway', device.uuid);
+      await this.updateWhitelistByType(session, 'thing', device.uuid);
+    } else if (device.type === 'gateway') {
+      await this.updateWhitelistByType(session, 'app', device.uuid);
+      await this.updateWhitelistByType(session, 'thing', device.uuid);
+    }
+  }
+
+  async updateWhitelistByType(session, type, toUuid) {
+    const devices = await this.cloud.getDevices(session.credentials, { type });
+    const updatePromises = devices.map(async (device) => {
+      const { meshblu } = device;
+      await this.appendToWhitelist(device, toUuid);
+      await this.cloud.updateDevice(session.credentials, device.uuid, { meshblu });
+    });
+    await Promise.all(updatePromises);
+  }
+
+  async appendToWhitelist(device, uuid) {
+    const { as, view } = device.meshblu.whitelists.discover;
+    const { as: asConfig, update } = device.meshblu.whitelists.configure;
+    as.push({ uuid });
+    view.push({ uuid });
+    asConfig.push({ uuid });
+    update.push({ uuid });
   }
 
   async createDevice(properties, session) {
@@ -42,7 +72,7 @@ class RegisterDevice {
           || await this.isSessionOwnerUser(session))) {
       this.generateError('Session unauthorized', 401);
     }
-    const uuidList = await this.getGatewayWhiteList(session);
+    const uuidList = await this.getGatewayWhitelist(session);
     uuidList.push({ uuid: session.credentials.uuid });
 
     device.meshblu = {
@@ -84,7 +114,7 @@ class RegisterDevice {
     };
   }
 
-  async getGatewayWhiteList(session) {
+  async getGatewayWhitelist(session) {
     const deviceOwner = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     const { whitelists } = deviceOwner.meshblu;
     if (whitelists) {
