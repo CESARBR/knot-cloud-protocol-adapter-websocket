@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16f30d29_88369d3a",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-04T16:20:59Z",
+      "side": 1,
+      "message": "maybe we must threat it differently. I just don\u0027t know if we should threat this now.",
+      "range": {
+        "startLine": 26,
+        "startChar": 30,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "fcc64d0faa5b4ac38bb47bb195acaf3b556a6b7a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c005a829_e1b2e0e3",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-04T16:20:59Z",
+      "side": 1,
+      "message": "This parameter can be a arrays `uuids` so we can re-use this function when we register a thing which will contain a whitelist with user, gateway and apps UUIDs",
+      "range": {
+        "startLine": 67,
+        "startChar": 21,
+        "endLine": 67,
+        "endChar": 25
+      },
+      "revId": "fcc64d0faa5b4ac38bb47bb195acaf3b556a6b7a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
