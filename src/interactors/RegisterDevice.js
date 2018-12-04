@@ -12,7 +12,35 @@ class RegisterDevice {
 
     const device = await this.createDevice(properties, session);
     const registeredDevice = await this.cloud.registerDevice(device);
+    await this.updateDevicesWhiteLists(registeredDevice, session);
     return { type: 'registered', data: registeredDevice };
+  }
+
+  async updateDevicesWhiteLists(device, session) {
+    if (device.type === 'app') {
+      await this.updateWhiteListByType(session, 'gateway', device.uuid);
+      await this.updateWhiteListByType(session, 'thing', device.uuid);
+    } else if (device.type === 'gateway') {
+      await this.updateWhiteListByType(session, 'app', device.uuid);
+      await this.updateWhiteListByType(session, 'thing', device.uuid);
+    }
+  }
+
+  async updateWhiteListByType(session, type, toUuid) {
+    const devices = await this.cloud.getDevices(session.credentials, { type });
+    devices.forEach(async (device) => {
+      await this.appendInWhiteList(device, toUuid);
+      await this.cloud.updateDevice(device.uuid, { meshblu: device.meshblu }, session.credentials);
+    });
+  }
+
+  async appendInWhiteList(device, uuid) {
+    const { as, view } = device.meshblu.whitelists.discover;
+    const { as: asConfig, update } = device.meshblu.whitelists.configure;
+    as.push({ uuid });
+    view.push({ uuid });
+    asConfig.push({ uuid });
+    update.push({ uuid });
   }
 
   async createDevice(properties, session) {
