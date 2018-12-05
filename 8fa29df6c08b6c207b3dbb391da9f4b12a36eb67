@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72d76b81_dfa584f1",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-05T17:23:26Z",
+      "side": 1,
+      "message": "Agree on having this generic function to handle errors. Do it in a separate commit, however.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 0
+      },
+      "revId": "8fa29df6c08b6c207b3dbb391da9f4b12a36eb67",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
