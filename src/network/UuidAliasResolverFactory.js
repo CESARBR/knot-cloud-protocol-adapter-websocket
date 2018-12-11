@@ -12,7 +12,7 @@ class UuidAliasResolverFactory {
     const uuidAliasClient = new RedisNS('uuid-alias', cacheClient);
     return new UuidAliasResolver({
       cache: uuidAliasClient,
-      aliasServerUri: this.settings.meshblu.aliasServerUri,
+      aliasServerUri: this.settings.meshblu.aliasLookupServerUri,
     });
   }
 }

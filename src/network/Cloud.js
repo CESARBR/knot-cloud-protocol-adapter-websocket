@@ -1,7 +1,8 @@
 class Cloud {
-  constructor(requester, messenger) {
+  constructor(requester, messenger, uuidAliasResolver) {
     this.requester = requester;
     this.messenger = messenger;
+    this.uuidAliasResolver = uuidAliasResolver;
   }
 
   async start() {
@@ -45,7 +46,8 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
-  async updateDevice(credentials, uuid, properties) {
+  async updateDevice(credentials, id, properties) {
+    const uuid = await this.resolveAlias(id);
     const request = {
       metadata: {
         jobType: 'FindAndUpdateDevice',
@@ -90,10 +92,11 @@ class Cloud {
   }
 
   async unregister(credentials, data) {
+    const uuid = await this.resolveAlias(data.id);
     const request = {
       metadata: {
         jobType: 'UnregisterDevice',
-        toUuid: data.uuid,
+        toUuid: uuid,
         auth: credentials,
       },
       data,
@@ -102,6 +105,19 @@ class Cloud {
     const response = await this.sendRequest(request);
     this.checkResponseHasError(response, 200);
     return JSON.parse(response.rawData);
+  }
+
+  resolveAlias(alias) {
+    return new Promise((resolve, reject) => {
+      this.uuidAliasResolver.resolve(alias, (error, uuid) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(uuid);
+      });
+    });
   }
 
   async sendRequest(request) {

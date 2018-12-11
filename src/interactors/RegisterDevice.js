@@ -1,7 +1,8 @@
 class RegisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
   async execute(id, properties) {
@@ -13,6 +14,11 @@ class RegisterDevice {
     const device = await this.createDevice(properties, session);
     const registeredDevice = await this.cloud.registerDevice(device);
     await this.updateDevicesWhiteLists(registeredDevice, session);
+
+    if (registeredDevice.id) {
+      await this.uuidAliasManager.create(session.credentials, device.id, registeredDevice.uuid);
+    }
+
     return { type: 'registered', data: registeredDevice };
   }
 
@@ -54,6 +60,7 @@ class RegisterDevice {
     if (type === 'gateway' || type === 'app') {
       device = await this.createAppOrGatewayDevice(session, name, type);
     } else if (type === 'thing') {
+      device.id = properties.id;
       device = await this.createThingDevice(device, session);
     } else {
       this.throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
