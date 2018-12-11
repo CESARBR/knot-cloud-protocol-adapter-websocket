@@ -1,12 +1,13 @@
 
 class UnregisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
-  async execute(id, data) {
-    const session = this.sessionStore.get(id);
+  async execute(requestId, data) {
+    const session = this.sessionStore.get(requestId);
     const { id } = data;
 
     if (!session) {
@@ -14,6 +15,7 @@ class UnregisterDevice {
     }
 
     await this.cloud.unregister(session.credentials, id);
+    await this.uuidAliasManager.remove(session.credentials, id);
     this.sessionStore.removeByUuid(id);
     return { type: 'unregistered' };
   }
