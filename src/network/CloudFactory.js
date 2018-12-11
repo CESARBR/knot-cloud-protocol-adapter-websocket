@@ -8,14 +8,18 @@ class CloudFactory {
     this.settings = settings;
   }
 
-  create() {
+  create(uuidAliasManager) {
     const messengerFactory = new HydrantManagerFactory({
       uuidAliasResolver: this.uuidAliasResolver,
       namespace: this.settings.meshblu.messagesNamespace,
       redisUri: this.settings.meshblu.firehoseRedisUri,
     });
     const messenger = messengerFactory.build();
-    return new Cloud(this.cloudRequester, messenger);
+    return new Cloud(
+      this.cloudRequester,
+      messenger,
+      uuidAliasManager,
+    );
   }
 }
 

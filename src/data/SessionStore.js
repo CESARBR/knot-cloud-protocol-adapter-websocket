@@ -14,8 +14,8 @@ class SessionStore {
   }
 
   removeByUuid(uuid) {
-    const id = _.findKey(this.sessions, i => i.credentials.uuid === uuid);
-    delete this.sessions[id];
+    const sessionId = _.findKey(this.sessions, i => i.credentials.uuid === uuid);
+    delete this.sessions[sessionId];
   }
 }
 
