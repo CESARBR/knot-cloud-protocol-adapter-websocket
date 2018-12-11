@@ -1,7 +1,11 @@
+import rq from 'request-promise-native';
+
 class Cloud {
-  constructor(requester, messenger) {
+  constructor(requester, messenger, uuidAliasResolver, aliasServerUri) {
     this.requester = requester;
     this.messenger = messenger;
+    this.uuidAliasResolver = uuidAliasResolver;
+    this.aliasServerUri = aliasServerUri;
   }
 
   async start() {
@@ -45,7 +49,8 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
-  async updateDevice(uuid, properties, credentials) {
+  async updateDevice(id, properties, credentials) {
+    const uuid = await this.resolveAlias(id);
     const request = {
       metadata: {
         jobType: 'FindAndUpdateDevice',
@@ -61,7 +66,8 @@ class Cloud {
     this.checkResponseHasError(response, 200);
   }
 
-  async getDevice(uuid, credentials) {
+  async getDevice(id, credentials) {
+    const uuid = await this.resolveAlias(id);
     const request = {
       metadata: {
         jobType: 'GetDevice',
@@ -104,6 +110,31 @@ class Cloud {
     const response = await this.sendRequest(request);
     this.checkResponseHasError(response, 200);
     return JSON.parse(response.rawData);
+  }
+
+  async createUuidAlias(credentials, name, uuid) {
+    const url = `${this.aliasServerUri}/aliases`;
+    const headers = {
+      meshblu_auth_uuid: credentials.uuid,
+      meshblu_auth_token: credentials.token,
+    };
+
+    await rq.post({
+      url, headers, body: { name, uuid }, json: true,
+    });
+  }
+
+  resolveAlias(alias) {
+    return new Promise((resolve, reject) => {
+      this.uuidAliasResolver.resolve(alias, (error, uuid) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(uuid);
+      });
+    });
   }
 
   async sendRequest(request) {

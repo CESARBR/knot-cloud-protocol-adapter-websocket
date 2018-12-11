@@ -13,6 +13,11 @@ class RegisterDevice {
     const device = await this.createDevice(properties, session);
     const deviceRegistered = await this.cloud.registerDevice(device);
     await this.updateDevicesWhiteLists(deviceRegistered, session);
+
+    if (deviceRegistered.id) {
+      await this.cloud.createUuidAlias(session.credentials, device.id, deviceRegistered.uuid);
+    }
+
     return { type: 'deviceRegistered', data: deviceRegistered };
   }
 
@@ -52,8 +57,9 @@ class RegisterDevice {
     let device = this.createBasicDevice(name, type);
 
     if (type === 'gateway' || type === 'app') {
-      device = this.createAppOrGatewayDevice(device, session);
+      device = await this.createAppOrGatewayDevice(device, session);
     } else if (type === 'thing') {
+      device.id = properties.id;
       device = this.createThingDevice(device, session);
     }
 
