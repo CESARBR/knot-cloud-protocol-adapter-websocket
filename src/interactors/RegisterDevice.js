@@ -1,9 +1,10 @@
 import Joi from 'joi';
 
 class RegisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
   async execute(id, properties) {
@@ -15,6 +16,15 @@ class RegisterDevice {
     const device = await this.createDevice(properties, session);
     const registeredDevice = await this.cloud.registerDevice(device);
     await this.updateDevicesWhitelists(registeredDevice, session);
+
+    if (registeredDevice.id) {
+      await this.uuidAliasManager.create(
+        session.credentials,
+        registeredDevice.id,
+        registeredDevice.uuid,
+      );
+    }
+
     return { type: 'registered', data: registeredDevice };
   }
 
