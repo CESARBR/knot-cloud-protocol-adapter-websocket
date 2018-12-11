@@ -2,19 +2,25 @@ import _ from 'lodash';
 import Joi from 'joi';
 
 class RegisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
-  async execute(id, properties) {
-    const session = this.sessionStore.get(id);
+  async execute(requestId, properties) {
+    const session = this.sessionStore.get(requestId);
     if (!session) {
       this.throwError('Unauthorized', 401);
     }
 
     const device = await this.createDevice(session, properties);
     await this.cloud.broadcastMessage(session.credentials, 'register', { device });
+    await this.uuidAliasManager.create(
+      session.credentials,
+      device.id,
+      device.uuid,
+    );
     return { type: 'registered', data: device };
   }
 

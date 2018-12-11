@@ -7,8 +7,8 @@ class UpdateSchema {
     this.cloud = cloud;
   }
 
-  async execute(id, data) {
-    const session = this.sessionStore.get(id);
+  async execute(requestId, data) {
+    const session = this.sessionStore.get(requestId);
     const { schema } = data;
 
     if (!session) {
