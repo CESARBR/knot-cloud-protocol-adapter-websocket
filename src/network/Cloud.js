@@ -27,26 +27,9 @@ class Cloud {
         jobType: 'Authenticate',
       },
     };
-    let response;
-    try {
-      response = await this.send(request);
-    } catch (error) {
-      const badGatewayError = new Error('Bad Gateway');
-      badGatewayError.code = 502;
-      throw badGatewayError;
-    }
 
-    if (!response) {
-      const timeoutError = new Error('Gateway Timeout');
-      timeoutError.code = 504;
-      throw timeoutError;
-    }
-
-    if (response.metadata.code !== 204) {
-      const error = new Error(response.metadata.status);
-      error.code = response.metadata.code;
-      throw error;
-    }
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 204);
   }
 
   async registerDevice(device) {
@@ -56,27 +39,9 @@ class Cloud {
       },
       data: device,
     };
-    let response;
-    try {
-      response = await this.send(request);
-    } catch (error) {
-      const badGatewayError = new Error('Bad Gateway');
-      badGatewayError.code = 502;
-      throw badGatewayError;
-    }
 
-    if (!response) {
-      const timeoutError = new Error('Gateway Timeout');
-      timeoutError.code = 504;
-      throw timeoutError;
-    }
-
-    if (response.metadata.code !== 201) {
-      const error = new Error(response.metadata.status);
-      error.code = response.metadata.code;
-      throw error;
-    }
-
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 201);
     return JSON.parse(response.rawData);
   }
 
@@ -88,28 +53,38 @@ class Cloud {
         toUuid: uuid,
       },
     };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 200);
+    return JSON.parse(response.rawData);
+  }
+
+  async sendRequest(request) {
     let response;
+
     try {
       response = await this.send(request);
     } catch (error) {
-      const badGatewayError = new Error('Bad Gateway');
-      badGatewayError.code = 502;
-      throw badGatewayError;
+      this.throwError('Bad Gateway', 502);
     }
 
+    return response;
+  }
+
+  throwError(message, code) {
+    const error = new Error(message);
+    error.code = code;
+    throw error;
+  }
+
+  checkResponseHasError(response, successCode) {
     if (!response) {
-      const timeoutError = new Error('Gateway Timeout');
-      timeoutError.code = 504;
-      throw timeoutError;
+      this.throwError('Gateway Timeout', 504);
     }
 
-    if (response.metadata.code !== 200) {
-      const error = new Error(response.metadata.status);
-      error.code = response.metadata.code;
-      throw error;
+    if (response.metadata.code !== successCode) {
+      this.throwError(response.metadata.status, response.metadata.code);
     }
-
-    return JSON.parse(response.rawData);
   }
 
   async send(request) {
