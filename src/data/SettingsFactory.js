@@ -14,6 +14,7 @@ const meshbluSchema = Joi.object().keys({
   firehoseRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
   cacheRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
   aliasServerUri: Joi.string().uri(),
+  aliasLookupServerUri: Joi.string().uri(),
   jobTimeoutSeconds: Joi.number().positive().required(),
   jobLogSampleRate: Joi.number().integer().min(0).required(),
   requestQueueName: Joi.string().required(),

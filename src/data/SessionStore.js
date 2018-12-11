@@ -13,9 +13,9 @@ class SessionStore {
     this.sessions[id] = session;
   }
 
-  removeByUuid(uuid) {
-    const id = _.findKey(this.sessions, i => i.credentials.uuid === uuid);
-    delete this.sessions[id];
+  remove(deviceId) {
+    const sessionId = _.findKey(this.sessions, i => i.credentials.uuid === deviceId);
+    delete this.sessions[sessionId];
   }
 }
 
