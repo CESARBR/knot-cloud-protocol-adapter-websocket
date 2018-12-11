@@ -1,9 +1,10 @@
 import { promisify } from 'util';
 
 class Cloud {
-  constructor(requester, messenger) {
+  constructor(requester, messenger, uuidAliasManager) {
     this.requester = requester;
     this.messenger = messenger;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
   close() {
@@ -38,7 +39,8 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
-  async updateDevice(credentials, uuid, properties) {
+  async updateDevice(credentials, id, properties) {
+    const uuid = await this.uuidAliasManager.resolve(id);
     const request = {
       metadata: {
         jobType: 'FindAndUpdateDevice',
@@ -54,7 +56,8 @@ class Cloud {
     this.checkResponseHasError(response, 200);
   }
 
-  async getDevice(credentials, uuid) {
+  async getDevice(credentials, id) {
+    const uuid = await this.uuidAliasManager.resolve(id);
     const request = {
       metadata: {
         jobType: 'GetDevice',
@@ -82,7 +85,8 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
-  async unregister(credentials, uuid) {
+  async unregister(credentials, id) {
+    const uuid = await this.uuidAliasManager.resolve(id);
     const request = {
       metadata: {
         jobType: 'UnregisterDevice',

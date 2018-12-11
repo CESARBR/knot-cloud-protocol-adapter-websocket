@@ -4,8 +4,8 @@ class GetDevices {
     this.cloud = cloud;
   }
 
-  async execute(id, query) {
-    const session = this.sessionStore.get(id);
+  async execute(requestId, query) {
+    const session = this.sessionStore.get(requestId);
     if (!session) {
       this.generateError('Unauthorized', 401);
     }
