@@ -7,6 +7,7 @@
     "redisUri": "MESHBLU_REDIS_URI",
     "firehoseRedisUri": "MESHBLU_FIREHOSE_REDIS_URI",
     "cacheRedisUri": "MESHBLU_CACHE_REDIS_URI",
+    "aliasLookupServerUri": "MESHBLU_ALIAS_LOOKUP_SERVER_URI",
     "aliasServerUri": "MESHBLU_ALIAS_SERVER_URI",
     "jobTimeoutSeconds": "MESHBLU_JOB_TIMEOUT_SECONDS",
     "jobLogSampleRate": "MESHBLU_JOB_LOG_SAMPLE_RATE",

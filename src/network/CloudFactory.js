@@ -15,7 +15,11 @@ class CloudFactory {
       redisUri: this.settings.meshblu.firehoseRedisUri,
     });
     const messenger = messengerFactory.build();
-    return new Cloud(this.cloudRequester, messenger);
+    return new Cloud(
+      this.cloudRequester,
+      messenger,
+      this.uuidAliasResolver,
+    );
   }
 }
 
