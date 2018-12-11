@@ -2,13 +2,14 @@ import _ from 'lodash';
 import Joi from 'joi';
 
 class RegisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
-  async execute(id, properties) {
-    const session = this.sessionStore.get(id);
+  async execute(requestId, properties) {
+    const session = this.sessionStore.get(requestId);
     if (!session) {
       this.throwError('Unauthorized', 401);
     }
@@ -108,6 +109,11 @@ class RegisterDevice {
 
     const thing = await this.createThing(device, id, options);
     await this.connectRouterToThing(session, device, thing);
+    await this.uuidAliasManager.create(
+      session.credentials,
+      id,
+      thing.uuid,
+    );
 
     return thing;
   }
