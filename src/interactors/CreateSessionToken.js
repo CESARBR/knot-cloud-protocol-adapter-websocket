@@ -11,7 +11,7 @@ class CreateSessionToken {
     }
 
     // TODO: Verify the property createdAt to expire the token
-    const { token } = await this.cloud.createSessionToken(credentials, data.uuid);
+    const { token } = await this.cloud.createSessionToken(credentials, data.id);
 
     return { type: 'created', data: token };
   }
