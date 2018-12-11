@@ -3,6 +3,7 @@ import SessionStore from 'data/SessionStore';
 import LoggerFactory from 'LoggerFactory';
 import CloudRequesterFactory from 'network/CloudRequesterFactory';
 import UuidAliasResolverFactory from 'network/UuidAliasResolverFactory';
+import UuidAliasManagerFactory from 'network/UuidAliasManagerFactory';
 import CloudFactory from 'network/CloudFactory';
 import ConnectionHandlerFactory from 'server/ConnectionHandlerFactory';
 import ServerFactory from 'server/ServerFactory';
@@ -17,10 +18,12 @@ async function main() {
     const cloudRequester = new CloudRequesterFactory(settings).create();
     const uuidAliasResolver = new UuidAliasResolverFactory(settings).create();
     const cloudFactory = new CloudFactory(cloudRequester, uuidAliasResolver, settings);
+    const uuidAliasManagerFactory = new UuidAliasManagerFactory(settings);
     const connectionHandlerFactory = new ConnectionHandlerFactory(
       sessionStore,
       cloudFactory,
       loggerFactory,
+      uuidAliasManagerFactory,
     );
     const serverFactory = new ServerFactory(settings, connectionHandlerFactory, loggerFactory);
     const server = serverFactory.create();

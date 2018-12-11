@@ -1,8 +1,9 @@
 
 class UnregisterDevice {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
   async execute(id, data) {

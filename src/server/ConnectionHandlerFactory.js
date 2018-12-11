@@ -14,10 +14,11 @@ import UpdateSchema from 'interactors/UpdateSchema';
 import DeviceController from 'controllers/DeviceController';
 
 class ConnectionHandlerFactory {
-  constructor(sessionStore, cloudFactory, loggerFactory) {
+  constructor(sessionStore, cloudFactory, loggerFactory, uuidAliasManagerFactory) {
     this.sessionStore = sessionStore;
     this.cloudFactory = cloudFactory;
     this.loggerFactory = loggerFactory;
+    this.uuidAliasManagerFactory = uuidAliasManagerFactory;
   }
 
   create(socket) {
@@ -32,10 +33,12 @@ class ConnectionHandlerFactory {
       authenticationCtrlLogger,
     );
 
-    const registerDevice = new RegisterDevice(this.sessionStore, cloud);
+    const uuidAliasManager = this.uuidAliasManagerFactory.create();
+
+    const registerDevice = new RegisterDevice(this.sessionStore, cloud, uuidAliasManager);
     const updateMetadata = new UpdateMetadata(this.sessionStore, cloud);
     const getDevices = new GetDevices(this.sessionStore, cloud);
-    const unregisterDevice = new UnregisterDevice(this.sessionStore, cloud);
+    const unregisterDevice = new UnregisterDevice(this.sessionStore, cloud, uuidAliasManager);
     const updateSchema = new UpdateSchema(this.sessionStore, cloud);
     const deviceCtrlLogger = this.loggerFactory.create(`DeviceController-${id}`);
     const deviceController = new DeviceController(
