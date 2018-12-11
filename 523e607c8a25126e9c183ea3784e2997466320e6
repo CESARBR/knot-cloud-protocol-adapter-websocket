@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5aef8ae8_b19752e5",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-11T18:42:07Z",
+      "side": 1,
+      "message": "Verify if \u0027id\u0027 was passed in the properties and add it in the device.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 55
+      },
+      "revId": "523e607c8a25126e9c183ea3784e2997466320e6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
