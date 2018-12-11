@@ -1,21 +1,31 @@
 class Authenticate {
-  constructor(sessionStore, cloud) {
+  constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
     this.cloud = cloud;
+    this.uuidAliasManager = uuidAliasManager;
   }
 
-  async execute(id, credentials) {
-    await this.cloud.authenticate(credentials);
-    this.createOrUpdateSession(id, credentials);
+  async execute(requestId, credentials) {
+    const credentialsToSave = {
+      uuid: credentials.uuid,
+      token: credentials.token,
+    };
+    if (Object.prototype.hasOwnProperty.call(credentials, 'id')) {
+      credentialsToSave.uuid = await this.uuidAliasManager.resolve(credentials.id);
+    }
+
+    await this.cloud.authenticate(credentialsToSave);
+    this.createOrUpdateSession(requestId, credentialsToSave);
     return { type: 'ready' };
   }
 
-  createOrUpdateSession(id, credentials) {
-    let session = this.sessionStore.get(id);
+  createOrUpdateSession(requestId, credentials) {
+    let session = this.sessionStore.get(requestId);
     if (!session) {
       session = { credentials };
     }
-    this.sessionStore.save(id, session);
+
+    this.sessionStore.save(requestId, session);
   }
 }
 
