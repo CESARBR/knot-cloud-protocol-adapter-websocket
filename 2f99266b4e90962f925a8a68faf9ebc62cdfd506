@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6df8fb18_d1f74ca5",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:45:29Z",
+      "side": 1,
+      "message": "The creation of this object is interactor\u0027s responsibility",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "2f99266b4e90962f925a8a68faf9ebc62cdfd506",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52fe88f3_c8e2eb19",
+        "filename": "src/interactors/UpdateDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:45:29Z",
+      "side": 1,
+      "message": "Not sure if it helps to send such a reply, unless we sent back the data (or the new data). We could ignore this reply.",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "2f99266b4e90962f925a8a68faf9ebc62cdfd506",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ef27f04_eed3ad36",
+        "filename": "src/interactors/UpdateDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:45:29Z",
+      "side": 1,
+      "message": "throwError",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "2f99266b4e90962f925a8a68faf9ebc62cdfd506",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "113e2166_6b2ac5b8",
+        "filename": "src/server/ConnectionHandler.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:45:29Z",
+      "side": 1,
+      "message": "metadata",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "2f99266b4e90962f925a8a68faf9ebc62cdfd506",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
