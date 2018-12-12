@@ -22,6 +22,29 @@
       "revId": "523e607c8a25126e9c183ea3784e2997466320e6",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44157f_48029fee",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:11:36Z",
+      "side": 1,
+      "message": "Should this happen in normal usage?",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 60
+      },
+      "revId": "523e607c8a25126e9c183ea3784e2997466320e6",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
