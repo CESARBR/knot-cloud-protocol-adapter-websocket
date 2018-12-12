@@ -209,6 +209,29 @@
     },
     {
       "key": {
+        "uuid": "e23d5a13_0b80ab23",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:09:13Z",
+      "side": 1,
+      "message": "Put the credentials first, as you did for getDevices",
+      "range": {
+        "startLine": 83,
+        "startChar": 18,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "5365b0afd10a3d23b3d723c7f460cf74f426d77d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43afefde_e4da759a",
         "filename": "src/network/Cloud.js",
         "patchSetId": 6
