@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "fa82c8f4_428ff702",
+        "filename": "src/interactors/UpdateDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:39Z",
+      "side": 1,
+      "message": "Could be simply \u0027updated\u0027 too.",
+      "parentUuid": "52fe88f3_c8e2eb19",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "2f99266b4e90962f925a8a68faf9ebc62cdfd506",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ef27f04_eed3ad36",
         "filename": "src/interactors/UpdateDevice.js",
         "patchSetId": 4
