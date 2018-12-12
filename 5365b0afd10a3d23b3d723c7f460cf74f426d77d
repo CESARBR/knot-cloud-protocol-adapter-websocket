@@ -140,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "065de44b_90792802",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:02:03Z",
+      "side": 1,
+      "message": "isSessionOwnerUser",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 37
+      },
+      "revId": "5365b0afd10a3d23b3d723c7f460cf74f426d77d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03b17fe7_37a7533e",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 6
