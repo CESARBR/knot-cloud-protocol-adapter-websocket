@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57494f5d_e907604c",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "Schema updated",
+      "range": {
+        "startLine": 75,
+        "startChar": 24,
+        "endLine": 75,
+        "endChar": 37
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d41b1da5_f00fe1e6",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "throwError",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "125d8940_c8e2f0ed",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "Device has no schema",
+      "range": {
+        "startLine": 18,
+        "startChar": 26,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acd551f0_cc0b337d",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "400 (bad request)",
+      "range": {
+        "startLine": 18,
+        "startChar": 53,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cda5ce2_2d5f1ae1",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "Remove the try-catch as you are not doing anything with the error.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 5
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e254481_39d8c318",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "updated",
+      "range": {
+        "startLine": 29,
+        "startChar": 20,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74a964e1_a16f32f1",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "isSessionOwnerThing",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6057ed20_9a82ffc6",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "When a method is named \u0027is\u003cProperty\u003e\u0027 it is expected to return true/false, but this method throws an error. In such a case, a name that indicates an action is preferred. I tend to use \u0027validate\u003cSomething\u003e\u0027.",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 9
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "945f5fea_2f78abe4",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T22:07:39Z",
+      "side": 1,
+      "message": "You don\u0027t need this. Just throw the error and rename it.",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 16
+      },
+      "revId": "401184aa2103a9e087b02cc2a68d7b6863ffb6d1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
