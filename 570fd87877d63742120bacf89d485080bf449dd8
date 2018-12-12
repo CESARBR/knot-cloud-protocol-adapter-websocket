@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "8815ece6_de8f91d3",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "Unregistered",
+      "range": {
+        "startLine": 60,
+        "startChar": 24,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b63974ac_797153d3",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "Declare it inside the try-catch",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef2393f9_ccce917f",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "Create a SessionStore.removeByUuid instead.",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e674663e_19385fbf",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "If you aren\u0027t doing anything with the error, you can remove the try-catch",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c247873_f45b81a7",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "unregistered",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "741c9058_bb456922",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-12T21:54:14Z",
+      "side": 1,
+      "message": "throwError",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b807bcf_7344a32c",
         "filename": "src/network/Cloud.js",
         "patchSetId": 4
