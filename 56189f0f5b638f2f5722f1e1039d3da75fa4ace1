@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d919bf8_cb756e88",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-13T17:13:25Z",
+      "side": 1,
+      "message": "Create this object in the interactor",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 44
+      },
+      "revId": "56189f0f5b638f2f5722f1e1039d3da75fa4ace1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
