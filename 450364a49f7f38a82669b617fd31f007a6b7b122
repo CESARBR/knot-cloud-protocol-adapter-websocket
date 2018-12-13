@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c094c8df_04798ea7",
+        "filename": "config/custom-environment-variables.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-13T19:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "300d8e13_dda36ed5",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "450364a49f7f38a82669b617fd31f007a6b7b122",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6026fa81_5f1caeaf",
         "filename": "src/network/Cloud.js",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-12T22:54:13Z",
       "side": 1,
       "message": "Extract this to a component (as we have uuidAliasResolver, messenger and requester).",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 3
+      },
+      "revId": "450364a49f7f38a82669b617fd31f007a6b7b122",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "727d76a1_2056855d",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-13T19:08:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6026fa81_5f1caeaf",
       "range": {
         "startLine": 115,
         "startChar": 2,
