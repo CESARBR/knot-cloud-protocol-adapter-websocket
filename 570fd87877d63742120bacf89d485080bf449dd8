@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ed1e8b58_75f70470",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b63974ac_797153d3",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 18
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef2393f9_ccce917f",
         "filename": "src/interactors/UnregisterDevice.js",
         "patchSetId": 4
@@ -68,6 +92,30 @@
       "revId": "570fd87877d63742120bacf89d485080bf449dd8",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43c8754_a1c1123e",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef2393f9_ccce917f",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 42
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "3238adcf_5133fc83",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e674663e_19385fbf",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2c247873_f45b81a7",
         "filename": "src/interactors/UnregisterDevice.js",
         "patchSetId": 4
@@ -114,6 +186,30 @@
       "revId": "570fd87877d63742120bacf89d485080bf449dd8",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a8d7258_c632fd08",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c247873_f45b81a7",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "a5e5a3fb_eaa491e7",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "741c9058_bb456922",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b807bcf_7344a32c",
         "filename": "src/network/Cloud.js",
         "patchSetId": 4
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "8efcdbc4_3440dc31",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "No",
+      "parentUuid": "2b807bcf_7344a32c",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 10
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c32c3aed_e588c59e",
         "filename": "src/network/Cloud.js",
         "patchSetId": 4
@@ -174,6 +318,30 @@
       "writtenOn": "2018-12-13T16:16:07Z",
       "side": 1,
       "message": "I think should be 204 here, according to: https://github.com/octoblu/meshblu-core-task-unregister-device/blob/master/src/unregister-device.coffee",
+      "range": {
+        "startLine": 105,
+        "startChar": 41,
+        "endLine": 105,
+        "endChar": 44
+      },
+      "revId": "570fd87877d63742120bacf89d485080bf449dd8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6562f6ab_e19a30f6",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2018-12-14T19:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c32c3aed_e588c59e",
       "range": {
         "startLine": 105,
         "startChar": 41,
