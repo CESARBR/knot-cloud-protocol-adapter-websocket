@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea776679_0c1eb466",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-17T12:28:19Z",
+      "side": 1,
+      "message": "I think this identifier should be passed always as `id`, like in the `updateMetadata`. Thus, it remains suitable even if a KNoT id is passed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "54be19387fc78b9550e52c7dcdb511e4d3963466",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
