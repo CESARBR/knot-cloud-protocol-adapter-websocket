@@ -22,6 +22,53 @@
       "revId": "54be19387fc78b9550e52c7dcdb511e4d3963466",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8fa7350_1c90bea9",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-18T17:59:33Z",
+      "side": 1,
+      "message": "As the notion of id appears only when registering/unregistering a device, it is better to make this change in or after the alias patch.",
+      "parentUuid": "ea776679_0c1eb466",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "54be19387fc78b9550e52c7dcdb511e4d3963466",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "747f82c4_bf42cfe2",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-12-18T17:59:33Z",
+      "side": 1,
+      "message": "There is a thing with using id, is that when creating the session it should create it with id, rather then uuid (when available)",
+      "range": {
+        "startLine": 17,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "54be19387fc78b9550e52c7dcdb511e4d3963466",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
