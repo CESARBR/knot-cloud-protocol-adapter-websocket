@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6479637_15da4113",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-18T18:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6507ef9_524c2130",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "c0563c25c8df55a137aa26c45750b5d4a0711711",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7facc220_dc414842",
         "filename": "package.json",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-18T17:33:28Z",
       "side": 1,
       "message": "Didn\u0027t the install of this package make any change to package-lock.json?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 26
+      },
+      "revId": "c0563c25c8df55a137aa26c45750b5d4a0711711",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "641017a0_f2d73a97",
+        "filename": "package.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2018-12-18T18:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7facc220_dc414842",
       "range": {
         "startLine": 31,
         "startChar": 0,
