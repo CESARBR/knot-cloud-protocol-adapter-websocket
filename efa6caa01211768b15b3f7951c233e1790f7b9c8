@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6fe1691_1f154872",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T19:31:43Z",
+      "side": 1,
+      "message": "Change this on previous commit.",
+      "range": {
+        "startLine": 75,
+        "startChar": 32,
+        "endLine": 75,
+        "endChar": 51
+      },
+      "revId": "efa6caa01211768b15b3f7951c233e1790f7b9c8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e399ecd_166f4bb1",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T19:31:43Z",
+      "side": 1,
+      "message": "Change this on previous commit.",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 27
+      },
+      "revId": "efa6caa01211768b15b3f7951c233e1790f7b9c8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
