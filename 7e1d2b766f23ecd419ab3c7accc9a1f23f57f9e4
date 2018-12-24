@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bfb548b_cae477c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T18:19:16Z",
+      "side": 1,
+      "message": "Following the pattern of previous commits, shouldn\u0027t it be something like \"Add schema handler\"? \nPerhaps:\n\nAdd schema handler \n\nCreates an endpoint to update the schema for a Thing after validation.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "7e1d2b766f23ecd419ab3c7accc9a1f23f57f9e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97e431a_27b12331",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T18:19:16Z",
+      "side": 1,
+      "message": "Check the pronouns usage, not sure if These or Those. Also change is for are.",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 54
+      },
+      "revId": "7e1d2b766f23ecd419ab3c7accc9a1f23f57f9e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
