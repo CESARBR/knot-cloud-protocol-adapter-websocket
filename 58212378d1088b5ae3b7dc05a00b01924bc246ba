@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "208b29f7_239b572b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T19:20:59Z",
+      "side": 1,
+      "message": "register",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "58212378d1088b5ae3b7dc05a00b01924bc246ba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1baae7e_4902ca91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T19:20:59Z",
+      "side": 1,
+      "message": "I\u0027d go with \"Register Thing\" or similar.\nSince you\u0027re not only adding the restrictions to register a thing, you are actually creating the register thing operation.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "58212378d1088b5ae3b7dc05a00b01924bc246ba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77ad82b6_2b472729",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 8
