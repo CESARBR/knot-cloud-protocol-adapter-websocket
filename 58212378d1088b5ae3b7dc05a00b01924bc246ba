@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77ad82b6_2b472729",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-24T19:13:19Z",
+      "side": 1,
+      "message": "isSessionOwnerGateway, to keep the standard.\nAlthough I\u0027m not sure it the session owner is the gateway. Also, is the app able to create Things?\n\nPerhaps this function could be something like isSessionAuthorized() and then check if gateway, app or user, instead of having the OR operator in the condition.",
+      "range": {
+        "startLine": 96,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 29
+      },
+      "revId": "58212378d1088b5ae3b7dc05a00b01924bc246ba",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
