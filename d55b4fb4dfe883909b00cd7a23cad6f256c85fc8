@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "866e49b9_731e3600",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-26T12:11:26Z",
+      "side": 1,
+      "message": "Is this being used somewhere?",
+      "range": {
+        "startLine": 6,
+        "startChar": 28,
+        "endLine": 6,
+        "endChar": 44
+      },
+      "revId": "d55b4fb4dfe883909b00cd7a23cad6f256c85fc8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
