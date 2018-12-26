@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fad44d1_454dab45",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-26T11:14:40Z",
+      "side": 1,
+      "message": "I think this is breaking the build.\n\n Duplicate declaration \"id\"\n   8 |   async execute(id, data) {\n   9 |     const session \u003d this.sessionStore.get(id);\n\u003e 10 |     const { id } \u003d data;\n     |             ^\n  11 | \n  12 |     if (!session) {\n  13 |       this.throwError(\u0027Unauthorized\u0027, 401);",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "f3c84b965e1c7ef6f9edc4b6bc6ea102120f19cd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
