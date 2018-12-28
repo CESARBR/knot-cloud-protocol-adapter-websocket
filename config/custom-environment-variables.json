@@ -4,6 +4,7 @@
   },
   "meshblu": {
     "namespace": "MESHBLU_NAMESPACE",
+    "messagesNamespace": "MESHBLU_MESSAGES_NAMESPACE",
     "redisUri": "MESHBLU_REDIS_URI",
     "firehoseRedisUri": "MESHBLU_FIREHOSE_REDIS_URI",
     "cacheRedisUri": "MESHBLU_CACHE_REDIS_URI",

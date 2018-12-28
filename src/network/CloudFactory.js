@@ -1,4 +1,4 @@
-import MessengerManagerFactory from 'meshblu-core-manager-messenger/factory';
+import HydrantManagerFactory from 'meshblu-core-manager-hydrant/factory';
 import Cloud from 'network/Cloud';
 
 class CloudFactory {
@@ -9,9 +9,9 @@ class CloudFactory {
   }
 
   create() {
-    const messengerFactory = new MessengerManagerFactory({
+    const messengerFactory = new HydrantManagerFactory({
       uuidAliasResolver: this.uuidAliasResolver,
-      namespace: this.settings.meshblu.namespace,
+      namespace: this.settings.meshblu.messagesNamespace,
       redisUri: this.settings.meshblu.firehoseRedisUri,
     });
     const messenger = messengerFactory.build();

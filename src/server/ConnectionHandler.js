@@ -13,19 +13,14 @@ class ConnectionHandler {
 
   async start() {
     this.cloud.on('message', this.onCloudMessage.bind(this));
-    this.cloud.on('config', this.onCloudConfig.bind(this));
-    this.cloud.on('data', this.onCloudData.bind(this));
-    this.started = this.cloud.start();
     this.client.on('message', this.onClientMessage.bind(this));
     this.client.on('close', this.onClientClose.bind(this));
     this.client.on('error', this.onClientError.bind(this));
-    await this.started;
     this.logger.info('Connected');
   }
 
   async onClientMessage(event) {
     try {
-      await this.started;
       const handler = this.getHandler(event.type);
       this.logger.info(`Handling '${event.type}'`);
       await handler(event.data);
@@ -53,16 +48,8 @@ class ConnectionHandler {
     this.logger.error(error.message);
   }
 
-  onCloudMessage(channel, message) {
-    this.logger.debug(`Message: ${channel} - ${message}`);
-  }
-
-  onCloudConfig(channel, message) {
-    this.logger.debug(`Config: ${channel} - ${message}`);
-  }
-
-  onCloudData(channel, message) {
-    this.logger.debug(`Data: ${channel} - ${message}`);
+  onCloudMessage(message) {
+    this.logger.debug(`Message: ${JSON.stringify(message, null, 2)}`);
   }
 
   createHandler(controllerMethod) {

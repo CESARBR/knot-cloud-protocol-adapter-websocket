@@ -8,16 +8,8 @@ class Authenticate {
 
   async execute(id, credentials) {
     await this.cloud.authenticate(credentials);
-    await this.subscribe(credentials);
     this.createOrUpdateSession(id, credentials);
     return { type: 'ready' };
-  }
-
-  async subscribe(credentials) {
-    const types = ['received', 'config', 'data'];
-    const subscriptionPromises = _.map(types,
-      type => (this.cloud.subscribe({ type, uuid: credentials.uuid })));
-    return Promise.all(subscriptionPromises);
   }
 
   createOrUpdateSession(id, credentials) {

@@ -1,19 +1,9 @@
+import { promisify } from 'util';
+
 class Cloud {
   constructor(requester, messenger) {
     this.requester = requester;
     this.messenger = messenger;
-  }
-
-  async start() {
-    return new Promise((resolve, reject) => {
-      this.messenger.connect((error) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve();
-        }
-      });
-    });
   }
 
   close() {
@@ -47,6 +37,9 @@ class Cloud {
       error.code = response.metadata.code;
       throw error;
     }
+
+    const connectAsync = promisify(this.messenger.connect.bind(this.messenger));
+    await connectAsync(credentials);
   }
 
   async send(request) {
@@ -61,20 +54,18 @@ class Cloud {
     });
   }
 
-  async subscribe(options) {
-    return new Promise((resolve, reject) => {
-      this.messenger.subscribe(options, (error, response) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(response);
-        }
-      });
-    });
-  }
-
   on(type, listener) {
-    this.messenger.on(type, listener);
+    this.messenger.on(type, (message) => {
+      const parsedMessage = {
+        metadata: message.metadata,
+      };
+      try {
+        parsedMessage.data = JSON.parse(message.rawData);
+      } catch (e) {
+        parsedMessage.rawData = message.rawData;
+      }
+      listener(parsedMessage);
+    });
   }
 }
 
