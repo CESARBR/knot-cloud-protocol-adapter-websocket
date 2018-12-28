@@ -4,6 +4,7 @@
   },
   "meshblu": {
     "namespace": "meshblu",
+    "messagesNamespace": "messages",
     "jobTimeoutSeconds": 30,
     "jobLogSampleRate": 0,
     "requestQueueName": "v2:request:queue",

@@ -37,7 +37,7 @@
     "joi": "^14.1.0",
     "lodash": "^4.17.11",
     "meshblu-core-job-manager": "^11.2.2",
-    "meshblu-core-manager-messenger": "^2.3.3",
+    "meshblu-core-manager-hydrant": "^2.0.0",
     "meshblu-uuid-alias-resolver": "^1.0.3",
     "shortid": "^2.2.14",
     "winston": "^3.1.0",

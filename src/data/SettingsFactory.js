@@ -9,6 +9,7 @@ const serverSchema = Joi.object().keys({
 });
 const meshbluSchema = Joi.object().keys({
   namespace: Joi.string().required(),
+  messagesNamespace: Joi.string().required(),
   redisUri: Joi.string().uri({ scheme: 'redis' }).required(),
   firehoseRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
   cacheRedisUri: Joi.string().uri({ scheme: 'redis' }).required(),
