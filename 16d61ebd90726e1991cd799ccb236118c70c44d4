@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e006cfa0_38a906b6",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2018-12-31T15:23:30Z",
+      "side": 1,
+      "message": "As I understand, this change was necessary due to the problem raised on https://review.gerrithub.io/c/CESARBR/knot-cloud-protocol-adapter-websocket/+/435539/6\n\nHowever, I\u0027ve two main points:\n- This change should be done in the commit above, not here. I understand that this will ease the rebase, however it should not be shown here. Must wait for the fixes on 435539.\n- Changing to requestId would make UnregisterDevice not compliant with the other interactors (Authenticate and Register), as they use id. If we decide on using requestId, this sould be done in all interactors, IMO.",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "16d61ebd90726e1991cd799ccb236118c70c44d4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
