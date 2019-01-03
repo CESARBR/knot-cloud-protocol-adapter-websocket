@@ -20,6 +20,9 @@ class Cloud {
 
     const response = await this.sendRequest(request);
     this.checkResponseHasError(response, 204);
+
+    const connectAsync = promisify(this.messenger.connect.bind(this.messenger));
+    await connectAsync(credentials);
   }
 
   async registerDevice(device) {
@@ -105,9 +108,6 @@ class Cloud {
     if (response.metadata.code !== successCode) {
       this.throwError(response.metadata.status, response.metadata.code);
     }
-
-    const connectAsync = promisify(this.messenger.connect.bind(this.messenger));
-    await connectAsync(credentials);
   }
 
   async send(request) {
