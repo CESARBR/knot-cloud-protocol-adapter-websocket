@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 class Authenticate {
   constructor(sessionStore, cloud) {
     this.sessionStore = sessionStore;
