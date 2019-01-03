@@ -82,6 +82,20 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async createSubscription(credentials, properties) {
+    const request = {
+      metadata: {
+        jobType: 'CreateSubscription',
+        auth: credentials,
+        toUuid: properties.subscriberUuid,
+      },
+      data: properties,
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 201);
+  }
+
   async sendRequest(request) {
     let response;
 
