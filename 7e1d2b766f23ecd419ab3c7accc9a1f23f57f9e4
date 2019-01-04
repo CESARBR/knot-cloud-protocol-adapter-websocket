@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1139724e_f72267b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-04T18:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bfb548b_cae477c3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "7e1d2b766f23ecd419ab3c7accc9a1f23f57f9e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c97e431a_27b12331",
         "filename": "src/interactors/UpdateSchema.js",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "7e1d2b766f23ecd419ab3c7accc9a1f23f57f9e4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d8f3d68_37ebe303",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-04T18:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c97e431a_27b12331",
+      "range": {
+        "startLine": 39,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 54
+      },
+      "revId": "7e1d2b766f23ecd419ab3c7accc9a1f23f57f9e4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
