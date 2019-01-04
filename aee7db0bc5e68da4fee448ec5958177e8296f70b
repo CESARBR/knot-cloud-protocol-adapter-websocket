@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3544acdd_114b37d8",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-04T20:18:04Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "aee7db0bc5e68da4fee448ec5958177e8296f70b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "851c57aa_7932dd9f",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-04T20:18:04Z",
+      "side": 1,
+      "message": "in -\u003e these validations are located in the knot protocol.\non -\u003e these validations are based on the content of knot protocol.",
+      "range": {
+        "startLine": 40,
+        "startChar": 34,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "aee7db0bc5e68da4fee448ec5958177e8296f70b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
