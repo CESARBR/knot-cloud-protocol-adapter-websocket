@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b8fc819_c44bb9c3",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-07T21:03:20Z",
+      "side": 1,
+      "message": "I think we could disable newline-per-chained-call error on eslint just for this block and have the \"required()\" calls in the same line as the others.\nIMO this would make more readable, what do you think? \n\n// The following chains are more readable if not written one per line\n/* eslint-disable newline-per-chained-call */\nsensor_id: Joi.number().integer().min(0).max(0xff).required(),\ntype_id: Joi.alternatives().try(\n  Joi.number().integer().min(0).max(0x15).required(),\n  Joi.number().integer().min(0xfff0).max(0xfff2).required(),\n  0xff10,\n).required(),\n/* eslint-enable newline-per-chained-call */",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d8559b5_becbdc2e",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-07T21:03:20Z",
+      "side": 1,
+      "message": "Why not just use formatErrorMessage?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e09a297b_aaf708ad",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-07T21:03:20Z",
+      "side": 1,
+      "message": "Instead of having two maps, couldn\u0027t it be done in only one chain? Something like:\n\nformatErrorMessage(error) {\n  return (`${\n    _.chain(error.details)\n    .map(d \u003d\u003e `- ${d.message}`)\n    .join(\u0027\\n\u0027)\n    .value()\n  }`)\n}",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57faac83_019a3726",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-07T21:03:20Z",
+      "side": 1,
+      "message": "Is this necessary? From what I understand, if we do a map in an array with only one device this would work as expected.\n\nconst formattedReasons \u003d `\\n${_.chain(reasons).map(reason \u003d\u003e `- ${reason}`).join(\u0027\\n\u0027).value()}`",
+      "range": {
+        "startLine": 90,
+        "startChar": 29,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
