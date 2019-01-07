@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "acc3af01_33d9ce6a",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-07T19:48:04Z",
+      "side": 1,
+      "message": "Just to follow the pattern this code is using. The most of the methods are like: function(session/credentials, ...). Another reason is that the function seems more readable by showing the importance order of the methods. \n\n\"This function creates a device with a session and some properties...\".",
+      "parentUuid": "42a9ce7e_c21f92ad",
+      "range": {
+        "startLine": 19,
+        "startChar": 21,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "ba2baf106fdecf87352087d10beb23521337b66e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b7427177_c5c6d2b3",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-07T18:11:59Z",
       "side": 1,
       "message": "Couldn\u0027t this be extracted from here and from registerGateway and done in createDevice?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 33
+      },
+      "revId": "ba2baf106fdecf87352087d10beb23521337b66e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b3b6dd_77bf8ab6",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-07T19:48:04Z",
+      "side": 1,
+      "message": "There are cases in which the \u0027type\u0027 doesn\u0027t match any options and the function throws an error, so this request/validation would be done unnecessarily in `createDevice`.",
+      "parentUuid": "b7427177_c5c6d2b3",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "45db6425_be9a019b",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-07T19:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58fef975_bc1e60f8",
+      "revId": "ba2baf106fdecf87352087d10beb23521337b66e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7e5ce6b_391f885d",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2019-01-07T18:11:59Z",
       "side": 1,
       "message": "This subscribe is receiving 5 parameters and the signature has only four. Is this correct?\nAlso, if subscribeOwn only wraps a call to subscribe, why not only have subscribe and, if necessary, a one-line comment stating that you\u0027re subscribing to receive your own messages for whatever reason needed?",
+      "range": {
+        "startLine": 142,
+        "startChar": 15,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "ba2baf106fdecf87352087d10beb23521337b66e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099a61f1_c72acfb3",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-07T19:48:04Z",
+      "side": 1,
+      "message": "Isn\u0027t a good idea converts a function in a comment, it was created precisely to avoid this. In the trade of between a few performance cost addition and a code more readable, I think the last one wins.\n\nPs: this code was extracted from cloud-spec, in this spec there are comments explaining almost all about the subscriptions.\nhttps://github.com/figueredo/knot-cloud-spec/tree/master/src/commands/register",
+      "parentUuid": "e7e5ce6b_391f885d",
       "range": {
         "startLine": 142,
         "startChar": 15,
