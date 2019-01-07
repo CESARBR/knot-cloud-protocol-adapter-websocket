@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bd833db_7a12af22",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-07T11:44:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we give a permission to app of unregister.sent or received?\nSo the app can know if a gateway was removed.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 26
+      },
+      "revId": "14efd5f7d1c5672c93948b0e23401700b89d49f1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
