@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Joi from 'joi';
 
 class RegisterDevice {
   constructor(sessionStore, cloud) {
@@ -18,7 +19,9 @@ class RegisterDevice {
   }
 
   async createDevice(session, properties) {
-    const { type, name, active } = properties;
+    const {
+      id, type, name, active,
+    } = properties;
     if (!type) {
       this.throwError('\'type\' is required', 400);
     }
@@ -29,16 +32,19 @@ class RegisterDevice {
       device = await this.registerApp(session, { name });
     } else if (type === 'gateway') {
       device = await this.registerGateway(session, { name, active });
+    } else if (type === 'thing') {
+      this.validateId(id);
+      device = await this.registerThing(session, id, { name });
     } else {
-      this.throwError('\'type\' should be \'gateway\' or \'app\'', 400);
+      this.throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
     }
 
     return device;
   }
 
   verifyPermissions(authenticatedDevice) {
-    if (authenticatedDevice.type !== 'knot:user') {
-      this.throwError('Device owner isn\'t a user', 400);
+    if (authenticatedDevice.type !== 'knot:user' && authenticatedDevice.type !== 'gateway') {
+      this.throwError('Device owner isn\'t a user or gateway', 400);
     }
   }
 
@@ -46,6 +52,18 @@ class RegisterDevice {
     const error = new Error(message);
     error.code = code;
     throw error;
+  }
+
+  mapJoiError(error) {
+    return (`\n${_.chain(error.details).map(d => `- ${d.message}`).join('\n').value()}`);
+  }
+
+  validateId(id) {
+    const { error } = Joi.validate(id, Joi.string().length(16).hex().required());
+    if (error) {
+      const joiError = this.mapJoiError(error);
+      this.throwError(`ID '${id}' invalid: ${joiError}`, 400);
+    }
   }
 
   async registerApp(session, options) {
@@ -66,6 +84,16 @@ class RegisterDevice {
     await this.connectRouterToGateway(session, user, gateway);
 
     return gateway;
+  }
+
+  async registerThing(session, id, options) {
+    const device = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
+    this.verifyPermissions(device);
+
+    const thing = await this.createThing(device, id, options);
+    await this.connectRouterToThing(session, device, thing);
+
+    return thing;
   }
 
   async createApp(user, options) {
@@ -116,6 +144,54 @@ class RegisterDevice {
     });
   }
 
+  async createThing(device, id, options) {
+    const params = {
+      type: 'thing',
+      id,
+      metadata: {
+        name: options.name,
+      },
+      knot: {
+        gateways: [],
+      },
+      meshblu: {
+        version: '2.0.0',
+        whitelists: {
+          discover: {
+            view: [
+              { uuid: device.knot.router },
+              { uuid: device.uuid },
+            ],
+          },
+          configure: {
+            update: [
+              { uuid: device.knot.router },
+              { uuid: device.uuid },
+            ],
+            sent: [{ uuid: device.knot.router }],
+          },
+          broadcast: {
+            sent: [{ uuid: device.knot.router }],
+          },
+          message: {
+            from: [{ uuid: device.knot.router }],
+          },
+          unregister: {
+            sent: [{ uuid: device.knot.router }],
+          },
+        },
+      },
+    };
+
+    if (device.type === 'gateway') {
+      params.knot.gateways.push(device.uuid);
+      params.meshblu.whitelists.discover.view.push({ uuid: device.knot.user });
+      params.meshblu.whitelists.configure.update.push({ uuid: device.knot.user });
+    }
+
+    return this.cloud.registerDevice(params);
+  }
+
   async connectRouterToApp(session, user, app) {
     await this.givePermission(session, user.knot.router, app.uuid, 'broadcast.received');
     await this.givePermission(session, user.knot.router, app.uuid, 'unregister.received');
@@ -133,6 +209,12 @@ class RegisterDevice {
 
   async connectRouterToGateway(session, user, gateway) {
     await this.givePermission(session, user.knot.router, gateway.uuid, 'configure.update');
+  }
+
+  async connectRouterToThing(session, device, thing) {
+    await this.subscribeOwn({ credentials: { uuid: thing.uuid, token: thing.token } }, thing.uuid, 'message.received');
+    await this.subscribe(session, thing.uuid, device.knot.router, 'broadcast.sent');
+    await this.subscribe(session, thing.uuid, device.knot.router, 'unregister.sent');
   }
 
   async subscribe(session, from, to, type) {
