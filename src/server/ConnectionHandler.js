@@ -60,7 +60,8 @@ class ConnectionHandler {
   }
 
   onCloudMessage(message) {
-    this.logger.debug(`Message: ${JSON.stringify(message, null, 2)}`);
+    const event = this.client.cloudMessageToEvent(message);
+    this.client.send(event.type, event.data);
   }
 
   createHandler(controllerMethod) {
