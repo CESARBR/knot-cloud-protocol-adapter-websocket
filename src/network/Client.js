@@ -36,7 +36,7 @@ class Client {
 
   async onMessage(frame) {
     try {
-      const event = this.toEvent(frame);
+      const event = this.clientMessageToEvent(frame);
       await this.listeners.message(event);
     } catch (error) {
       await this.onError(error);
@@ -51,11 +51,34 @@ class Client {
     return JSON.stringify({ type, data });
   }
 
-  toEvent(frame) {
+  clientMessageToEvent(frame) {
     const event = JSON.parse(frame);
     if (!event.type) {
       throw new InvalidFrameError('Invalid frame', frame);
     }
+    return event;
+  }
+
+  cloudMessageToEvent(message) {
+    const types = ['broadcast.sent', 'unregister.sent'];
+    const routeData = _.chain(message.metadata.route)
+      .filter(data => _.includes(types, data.type))
+      .head()
+      .value();
+
+    const event = {
+      data: {
+        from: routeData.from,
+      },
+    };
+
+    if (routeData.type === 'unregister.sent') {
+      event.type = 'unregister';
+    } else {
+      event.type = message.data.topic;
+      event.data.payload = message.data.payload;
+    }
+
     return event;
   }
 }
