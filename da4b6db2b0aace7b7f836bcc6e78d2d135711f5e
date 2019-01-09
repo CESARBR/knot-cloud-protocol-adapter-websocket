@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb34c56d_20ecee29",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T12:51:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we have a default value. IMO this is a required value when creating a gateway and if the request wasn\u0027t made with this property we should set it anyway.",
+      "range": {
+        "startLine": 31,
+        "startChar": 59,
+        "endLine": 31,
+        "endChar": 65
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3583cfd5_e68349da",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T12:51:46Z",
+      "side": 1,
+      "message": "there should be a default value",
+      "range": {
+        "startLine": 103,
+        "startChar": 16,
+        "endLine": 103,
+        "endChar": 30
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9acd4ed5_3e4e5ef3",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T12:51:46Z",
+      "side": 1,
+      "message": "I think you should bring the comments from here too: https://github.com/figueredo/knot-cloud-spec/blob/master/src/commands/register/app.js#L75\n\nThey explain more why we need these white lists for future operations.",
+      "range": {
+        "startLine": 119,
+        "startChar": 8,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a6f477c_fa4f8acd",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T12:51:46Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 30
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
