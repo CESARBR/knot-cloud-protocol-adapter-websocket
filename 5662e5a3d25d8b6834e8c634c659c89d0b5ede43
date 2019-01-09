@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9dae7ba_082bb95b",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T17:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b8fc819_c44bb9c3",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d8559b5_becbdc2e",
         "filename": "src/interactors/UpdateSchema.js",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f2c40b1_09507414",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T17:05:09Z",
+      "side": 1,
+      "message": "I followed the pattern in the function defined on SettingsFactory:\nhttps://github.com/CESARBR/knot-cloud-protocol-adapter-websocket/blob/master/src/data/SettingsFactory.js#L60",
+      "parentUuid": "7d8559b5_becbdc2e",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -91,6 +139,54 @@
       "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fd60670_3ce67fa9",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T17:05:09Z",
+      "side": 1,
+      "message": "I agree. Just a map is necessary",
+      "parentUuid": "57faac83_019a3726",
+      "range": {
+        "startLine": 90,
+        "startChar": 29,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d13c8ebc_1cc7f28b",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 13
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T17:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e09a297b_aaf708ad",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "5662e5a3d25d8b6834e8c634c659c89d0b5ede43",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
