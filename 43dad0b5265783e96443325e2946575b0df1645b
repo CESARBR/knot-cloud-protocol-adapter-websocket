@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28aaa4ad_36027fd1",
+        "filename": "src/network/Client.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T14:20:40Z",
+      "side": 1,
+      "message": "missing payload. Seems that is just saying the some device was unregistered",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "43dad0b5265783e96443325e2946575b0df1645b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25f33e5f_0d826b62",
+        "filename": "src/network/Client.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T14:20:40Z",
+      "side": 1,
+      "message": "If the message unregister use this same structure we can remove this line out of else. But i don\u0027t know if we should return the whole device or we can return just the uuid.\nReturn a device or just the uuid in payload is useful because the device who is listen can be a copy in memory of those devices like knotd and cloud-UI.",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 47
+      },
+      "revId": "43dad0b5265783e96443325e2946575b0df1645b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
