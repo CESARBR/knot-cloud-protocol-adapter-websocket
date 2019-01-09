@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "132ca66c_490a8002",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T15:25:16Z",
+      "side": 1,
+      "message": "As discussed there is no need to put these comments",
+      "parentUuid": "9acd4ed5_3e4e5ef3",
+      "range": {
+        "startLine": 119,
+        "startChar": 8,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a6f477c_fa4f8acd",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 5
@@ -91,6 +115,30 @@
       "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e45edb25_938fc822",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T15:25:16Z",
+      "side": 1,
+      "message": "As discussed there is no need to put these comments",
+      "parentUuid": "3a6f477c_fa4f8acd",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 30
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
