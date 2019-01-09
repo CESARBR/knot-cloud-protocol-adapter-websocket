@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4b09c6c2_285da89c",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-09T20:03:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3583cfd5_e68349da",
+      "range": {
+        "startLine": 103,
+        "startChar": 16,
+        "endLine": 103,
+        "endChar": 30
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9acd4ed5_3e4e5ef3",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 5
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "492c75b4_94f70845",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-09T20:03:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "132ca66c_490a8002",
+      "range": {
+        "startLine": 119,
+        "startChar": 8,
+        "endLine": 119,
+        "endChar": 26
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a6f477c_fa4f8acd",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 5
@@ -130,6 +178,30 @@
       "side": 1,
       "message": "As discussed there is no need to put these comments",
       "parentUuid": "3a6f477c_fa4f8acd",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 30
+      },
+      "revId": "da4b6db2b0aace7b7f836bcc6e78d2d135711f5e",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1ced6b8_e03152ba",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-09T20:03:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e45edb25_938fc822",
       "range": {
         "startLine": 134,
         "startChar": 8,
