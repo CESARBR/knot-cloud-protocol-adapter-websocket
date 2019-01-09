@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92c6a24e_8fe06e1c",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T15:27:32Z",
+      "side": 1,
+      "message": "The joi message error is not so readable in the logger.\nBut we can handle this like here: https://github.com/CESARBR/knot-cloud-protocol-adapter-websocket/blob/4257595acc0ea9d7718c2b123535a00004d2ed11/src/data/SettingsFactory.js#L60",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "ef0e6d3b7a974c788d0bead7041fea0879811699",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c26d207_333ad38a",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-09T15:27:32Z",
+      "side": 1,
+      "message": "Describe what the white list represents like here:\nhttps://github.com/figueredo/knot-cloud-spec/blob/master/src/commands/register/thing.js#L28",
+      "range": {
+        "startLine": 142,
+        "startChar": 8,
+        "endLine": 142,
+        "endChar": 19
+      },
+      "revId": "ef0e6d3b7a974c788d0bead7041fea0879811699",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
