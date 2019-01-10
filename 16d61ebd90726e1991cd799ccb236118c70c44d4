@@ -22,6 +22,30 @@
       "revId": "16d61ebd90726e1991cd799ccb236118c70c44d4",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daacfc67_4a020d45",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-10T17:46:04Z",
+      "side": 1,
+      "message": "- I\u0027ve made all the changes related to the alias in this patch according to what I\u0027ve just discussed with Figueredo.\n- I decide to keep \u0027requestId\u0027 and change the other interactors to compliant with it, I think it\u0027s more descriptive and avoid misunderstanding.",
+      "parentUuid": "e006cfa0_38a906b6",
+      "range": {
+        "startLine": 9,
+        "startChar": 16,
+        "endLine": 9,
+        "endChar": 25
+      },
+      "revId": "16d61ebd90726e1991cd799ccb236118c70c44d4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
