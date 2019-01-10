@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fef2ba2a_edbe19f7",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-10T11:25:56Z",
+      "side": 1,
+      "message": "Remove the parentheses.",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 12
+      },
+      "revId": "ea99ffbc1a1326c284ae21d7d4a3a68e55963677",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
