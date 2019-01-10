@@ -5,6 +5,7 @@ class DeviceController {
     devicesInteractor,
     unregisterInteractor,
     updateSchemaInteractor,
+    createSessionTokenInteractor,
     logger,
   ) {
     this.updateMetadataInteractor = updateMetadataInteractor;
@@ -12,6 +13,7 @@ class DeviceController {
     this.devicesInteractor = devicesInteractor;
     this.unregisterInteractor = unregisterInteractor;
     this.updateSchemaInteractor = updateSchemaInteractor;
+    this.createSessionTokenInteractor = createSessionTokenInteractor;
     this.logger = logger;
   }
 
@@ -78,6 +80,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in update schema (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async createSessionToken(request, responseHandler) {
+    try {
+      const response = await this.createSessionTokenInteractor.execute(request.id, request.data);
+      this.logger.info('Token created');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in create token (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
