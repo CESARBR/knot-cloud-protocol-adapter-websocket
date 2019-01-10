@@ -19,6 +19,8 @@ class ConnectionHandler {
         .bind(this.deviceController)),
       schema: this.createHandler(this.deviceController.updateSchema
         .bind(this.deviceController)),
+      token: this.createHandler(this.deviceController.createSessionToken
+        .bind(this.deviceController)),
     };
   }
 

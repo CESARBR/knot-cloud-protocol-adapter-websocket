@@ -96,6 +96,22 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async createSessionToken(credentials, uuid) {
+    const request = {
+      metadata: {
+        jobType: 'CreateSessionToken',
+        toUuid: uuid,
+        fromUuid: credentials.uuid,
+        auth: credentials,
+      },
+      data: {},
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 201);
+    return JSON.parse(response.rawData);
+  }
+
   async broadcastMessage(credentials, topic, payload) {
     const request = {
       metadata: {
