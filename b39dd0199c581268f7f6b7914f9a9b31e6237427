@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29980f3e_d2223826",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-11T21:19:57Z",
+      "side": 1,
+      "message": "Could this be done in a single chain? e.g.:\n(_.chain(device)\n.defaultsDeep( { meshblu: { whitelists: this.pathToObject(type) } })\n.get(`meshblu.whitelists.${type}`)\n.value()).push ({uuid});",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 63
+      },
+      "revId": "b39dd0199c581268f7f6b7914f9a9b31e6237427",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
