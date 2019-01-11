@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec5fca8b_057ca6cf",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-11T21:41:22Z",
+      "side": 1,
+      "message": "When the verification start to grow like that, I find a switch easier to read. Also, as a rule of thumb, as far as I know, switch is more efficient than if/else in this scenarios.\nJust a suggestion.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "cf63b0695b52c5c8aa1bbfc6d8ecb73a1042b6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9757e056_fcdd90d2",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-11T21:41:22Z",
+      "side": 1,
+      "message": "Are the scenarios where we check permissions the same for users and gateways? If not, wouldn\u0027t it be better to have it split in two different methods? e.g.: verifyIfUser and verifyIfGateway.\n\nAre there scenarios where this check in the same method would cause problem (even if this is not expected to happen, trying to avoid breaches here. For instance, what if a gateway tries to \nregister an app? Could this cause any issue if happened?\n\nOn the other hand, there could be scenarios where any of the checks would be valid, such as when creating a new Thing.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "cf63b0695b52c5c8aa1bbfc6d8ecb73a1042b6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
