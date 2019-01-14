@@ -22,6 +22,30 @@
       "revId": "b39dd0199c581268f7f6b7914f9a9b31e6237427",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b98fbf59_2583cfe7",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-14T15:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29980f3e_d2223826",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 63
+      },
+      "revId": "b39dd0199c581268f7f6b7914f9a9b31e6237427",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
