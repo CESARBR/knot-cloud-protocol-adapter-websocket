@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a355ea83_94cc9856",
+        "filename": "src/interactors/CreateSessionToken.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-14T21:05:17Z",
+      "side": 1,
+      "message": "The notion of \u0027id\u0027 just appears after the uuid alias patch.",
+      "range": {
+        "startLine": 14,
+        "startChar": 71,
+        "endLine": 14,
+        "endChar": 78
+      },
+      "revId": "8c51f6585318059a7ca86fa1b9dc20a61cf1df37",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f04211e_54b9617c",
+        "filename": "src/server/ConnectionHandler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-14T21:05:17Z",
+      "side": 1,
+      "message": "I think \u0027token\u0027 is enough.",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 17
+      },
+      "revId": "8c51f6585318059a7ca86fa1b9dc20a61cf1df37",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
