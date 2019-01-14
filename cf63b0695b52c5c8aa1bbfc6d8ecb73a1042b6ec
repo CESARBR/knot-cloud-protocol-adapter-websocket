@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87ea75ac_b688a5bf",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-14T15:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec5fca8b_057ca6cf",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "cf63b0695b52c5c8aa1bbfc6d8ecb73a1042b6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9757e056_fcdd90d2",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-11T21:41:22Z",
       "side": 1,
       "message": "Are the scenarios where we check permissions the same for users and gateways? If not, wouldn\u0027t it be better to have it split in two different methods? e.g.: verifyIfUser and verifyIfGateway.\n\nAre there scenarios where this check in the same method would cause problem (even if this is not expected to happen, trying to avoid breaches here. For instance, what if a gateway tries to \nregister an app? Could this cause any issue if happened?\n\nOn the other hand, there could be scenarios where any of the checks would be valid, such as when creating a new Thing.",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 19
+      },
+      "revId": "cf63b0695b52c5c8aa1bbfc6d8ecb73a1042b6ec",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4385277f_86b4ba03",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-14T15:54:01Z",
+      "side": 1,
+      "message": "You are right. In this way, the gateway can register an app and this shouldn\u0027t be allowed. It\u0027s better to split them.",
+      "parentUuid": "9757e056_fcdd90d2",
       "range": {
         "startLine": 45,
         "startChar": 2,
