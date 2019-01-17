@@ -6,6 +6,7 @@ class DeviceController {
     unregisterInteractor,
     updateSchemaInteractor,
     createSessionTokenInteractor,
+    activateInteractor,
     logger,
   ) {
     this.updateMetadataInteractor = updateMetadataInteractor;
@@ -14,6 +15,7 @@ class DeviceController {
     this.unregisterInteractor = unregisterInteractor;
     this.updateSchemaInteractor = updateSchemaInteractor;
     this.createSessionTokenInteractor = createSessionTokenInteractor;
+    this.activateInteractor = activateInteractor;
     this.logger = logger;
   }
 
@@ -94,6 +96,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in create token (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async activateDevice(request, responseHandler) {
+    try {
+      const response = await this.activateInteractor.execute(request.id, request.data);
+      this.logger.info('Device activated');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in activate device (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
