@@ -21,6 +21,8 @@ class ConnectionHandler {
         .bind(this.deviceController)),
       token: this.createHandler(this.deviceController.createSessionToken
         .bind(this.deviceController)),
+      activate: this.createHandler(this.deviceController.activateGateway
+        .bind(this.deviceController)),
     };
   }
 

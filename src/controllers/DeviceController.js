@@ -6,6 +6,7 @@ class DeviceController {
     unregisterInteractor,
     updateSchemaInteractor,
     createSessionTokenInteractor,
+    activateGatewayInteractor,
     logger,
   ) {
     this.updateMetadataInteractor = updateMetadataInteractor;
@@ -14,6 +15,7 @@ class DeviceController {
     this.unregisterInteractor = unregisterInteractor;
     this.updateSchemaInteractor = updateSchemaInteractor;
     this.createSessionTokenInteractor = createSessionTokenInteractor;
+    this.activateGatewayInteractor = activateGatewayInteractor;
     this.logger = logger;
   }
 
@@ -94,6 +96,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in create token (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async activateGateway(request, responseHandler) {
+    try {
+      const response = await this.activateGatewayInteractor.execute(request.id, request.data);
+      this.logger.info('Gateway activated');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in activate gateway (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
