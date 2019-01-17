@@ -12,6 +12,7 @@ import GetDevices from 'interactors/GetDevices';
 import UnregisterDevice from 'interactors/UnregisterDevice';
 import UpdateSchema from 'interactors/UpdateSchema';
 import CreateSessionToken from 'interactors/CreateSessionToken';
+import ActivateDevice from 'interactors/ActivateDevice';
 import DeviceController from 'controllers/DeviceController';
 
 class ConnectionHandlerFactory {
@@ -39,6 +40,7 @@ class ConnectionHandlerFactory {
     const unregisterDevice = new UnregisterDevice(this.sessionStore, cloud);
     const updateSchema = new UpdateSchema(this.sessionStore, cloud);
     const createSessionToken = new CreateSessionToken(this.sessionStore, cloud);
+    const activateDevice = new ActivateDevice(this.sessionStore, cloud);
     const deviceCtrlLogger = this.loggerFactory.create(`DeviceController-${id}`);
     const deviceController = new DeviceController(
       registerDevice,
@@ -47,6 +49,7 @@ class ConnectionHandlerFactory {
       unregisterDevice,
       updateSchema,
       createSessionToken,
+      activateDevice,
       deviceCtrlLogger,
     );
 
