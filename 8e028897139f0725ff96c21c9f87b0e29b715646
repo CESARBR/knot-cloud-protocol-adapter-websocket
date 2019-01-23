@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1502a8cb_888b35ee",
+        "filename": "src/interactors/ActivateGateway.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-23T13:01:39Z",
+      "side": 1,
+      "message": "No verification is performed to check if the device being activated is a gateway.\nI\u0027m not sure if we should verify, since in the future we could want to use the active information for a different purpose depending on the device type. However, I think the class/endpoint name should be changed to Activate/activate only, if we\u0027re not restricting it to be done only for gateways.",
+      "revId": "8e028897139f0725ff96c21c9f87b0e29b715646",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
