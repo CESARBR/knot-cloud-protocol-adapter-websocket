@@ -34,6 +34,24 @@
       "revId": "8e028897139f0725ff96c21c9f87b0e29b715646",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92c9c49b_927ffb57",
+        "filename": "src/interactors/ActivateGateway.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T14:50:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08154203_7b890aa9",
+      "revId": "8e028897139f0725ff96c21c9f87b0e29b715646",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
