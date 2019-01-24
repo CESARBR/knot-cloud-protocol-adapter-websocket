@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c6e76f0b_2ab0bd81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T18:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff8c4130_67c202c7",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "907c4182_c1c7b4a5",
         "filename": "src/controllers/DeviceController.js",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53b372fd_1d48913b",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T18:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "907c4182_c1c7b4a5",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8aef3551_a8fbe544",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T18:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e692e48_c174d75d",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33f4c4b9_837dcac9",
         "filename": "src/controllers/DeviceController.js",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "63a1d5d0_20097016",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T18:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33f4c4b9_837dcac9",
+      "range": {
+        "startLine": 112,
+        "startChar": 44,
+        "endLine": 112,
+        "endChar": 51
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3c0cfae_8abf33ba",
         "filename": "src/interactors/ActivateDevice.js",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90f7d331_6a1931e0",
+        "filename": "src/interactors/ActivateDevice.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-01-24T18:12:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c0cfae_8abf33ba",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
