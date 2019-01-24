@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff8c4130_67c202c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-24T16:01:41Z",
+      "side": 1,
+      "message": "Add activate handler\n\nThis is now a generic operation.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "907c4182_c1c7b4a5",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-24T16:01:41Z",
+      "side": 1,
+      "message": "If we follow the same pattern as register and unregister (which are generic operations), I think this should be activateInteractor.",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 28
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e692e48_c174d75d",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-24T16:01:41Z",
+      "side": 1,
+      "message": "\u0027Device activated\u0027 or only \u0027activated\u0027",
+      "range": {
+        "startLine": 109,
+        "startChar": 22,
+        "endLine": 109,
+        "endChar": 44
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33f4c4b9_837dcac9",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-24T16:01:41Z",
+      "side": 1,
+      "message": "device",
+      "range": {
+        "startLine": 112,
+        "startChar": 44,
+        "endLine": 112,
+        "endChar": 51
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3c0cfae_8abf33ba",
+        "filename": "src/interactors/ActivateDevice.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-01-24T16:01:41Z",
+      "side": 1,
+      "message": "Either change the verification to check if the device is also of type \u0027gateway\u0027 OR change the message to indicate that only users can activate any device.\n\nI\u0027m not sure if this is necessary, since only a device would be able to activate himself or some other device in the whitelist.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "e7190486eab7e1cbd821d4605a384d6e2f25518a",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
