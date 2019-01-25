@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "879b53db_e4cfe050",
+        "filename": "src/interactors/ActivateDevice.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-25T14:05:16Z",
+      "side": 1,
+      "message": "Remove this method that isn\u0027t being used.",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "f6db2d81315277e413ab29f51758e9fc2a1f6c95",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
