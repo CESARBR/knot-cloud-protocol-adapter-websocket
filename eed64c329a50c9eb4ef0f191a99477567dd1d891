@@ -22,6 +22,30 @@
       "revId": "eed64c329a50c9eb4ef0f191a99477567dd1d891",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5af72f46_fc81f8f8",
+        "filename": "src/network/UuidAliasResolverFactory.js",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-01-28T16:51:32Z",
+      "side": 1,
+      "message": "Yes, this is correct. The uuid-alias-lookup-service provides what \u0027UuidAliasResolver\u0027 needs.\n\nhttps://github.com/octoblu/meshblu-uuid-alias-resolver/blob/master/src/uuid-alias-resolver.coffee\nhttps://github.com/octoblu/uuid-alias-lookup-service/blob/master/src/router.coffee\n\nOn the other hand, the uuid-alias-service provides the API used by the \u0027UuidAliasManager\u0027.\n\nhttps://github.com/octoblu/uuid-alias-service/blob/master/src/router.coffee\nhttps://review.gerrithub.io/c/CESARBR/knot-cloud-protocol-adapter-websocket/+/436869/10/src/network/UuidAliasManager.js",
+      "parentUuid": "0a2e7f7d_0a6d69c2",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "eed64c329a50c9eb4ef0f191a99477567dd1d891",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
