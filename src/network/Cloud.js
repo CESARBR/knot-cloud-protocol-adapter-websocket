@@ -39,11 +39,13 @@ class Cloud {
   }
 
   async updateDevice(credentials, uuid, properties) {
+    const device = await this.getDevice(credentials, credentials.uuid);
     const request = {
       metadata: {
         jobType: 'FindAndUpdateDevice',
         auth: credentials,
         toUuid: uuid,
+        fromUuid: device.type === 'app' ? device.knot.router : credentials.uuid,
       },
       data: {
         $set: properties,
@@ -69,10 +71,12 @@ class Cloud {
   }
 
   async getDevices(credentials, query) {
+    const device = await this.getDevice(credentials, credentials.uuid);
     const request = {
       metadata: {
         jobType: 'SearchDevices',
         auth: credentials,
+        fromUuid: device.type === 'app' ? device.knot.router : credentials.uuid,
       },
       data: query,
     };
