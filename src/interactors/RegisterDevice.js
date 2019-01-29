@@ -101,6 +101,11 @@ class RegisterDevice {
       this.throwError('Only users or gateways can create things', 400);
     }
 
+    const devices = await this.cloud.getDevices(session.credentials, { id });
+    if (devices.length > 0) {
+      this.throwError('Thing is already registered', 400);
+    }
+
     const thing = await this.createThing(device, id, options);
     await this.connectRouterToThing(session, device, thing);
 
