@@ -10,7 +10,7 @@ class ActivateDevice {
       this.throwError('Unauthorized', 401);
     }
 
-    await this.cloud.updateDevice(credentials, data.uuid, { knot: { active: true } });
+    await this.cloud.updateDevice(credentials, data.uuid, { 'knot.active': true });
     return { type: 'activated' };
   }
 
