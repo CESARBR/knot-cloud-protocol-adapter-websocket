@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac92509_b45f2909",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-02-01T14:24:43Z",
+      "side": 1,
+      "message": "The $set feature was already being used. What was changed was how the property was sent to the updateDevice method.",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "4d0989b0a732f9de9428b09aedcef4fb7a888020",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
