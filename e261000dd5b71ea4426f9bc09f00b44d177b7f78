@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "605f584b_87ebe2a4",
+        "filename": "src/data/SessionStore.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-04T19:18:13Z",
+      "side": 1,
+      "message": "Why change from uuid to deviceId?",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "e261000dd5b71ea4426f9bc09f00b44d177b7f78",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c7fd613_ff1ee20d",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-04T19:18:13Z",
+      "side": 1,
+      "message": "Will this be resolved after it has been removed in the line above?",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 67
+      },
+      "revId": "e261000dd5b71ea4426f9bc09f00b44d177b7f78",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
