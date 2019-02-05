@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91b44179_c641fdfb",
+        "filename": "src/data/SessionStore.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-02-05T12:24:44Z",
+      "side": 1,
+      "message": "I\u0027ve changed because I was thinking to save the `id` (to represent both KNoT ID/Meshblu UUID) in the session credentials instead of `uuid`. However, it wasn\u0027t necessary since we resolve KNoT `ids` to `uuid` in the end.",
+      "parentUuid": "605f584b_87ebe2a4",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 17
+      },
+      "revId": "e261000dd5b71ea4426f9bc09f00b44d177b7f78",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c7fd613_ff1ee20d",
         "filename": "src/interactors/UnregisterDevice.js",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-04T19:18:13Z",
       "side": 1,
       "message": "Will this be resolved after it has been removed in the line above?",
+      "range": {
+        "startLine": 16,
+        "startChar": 29,
+        "endLine": 16,
+        "endChar": 67
+      },
+      "revId": "e261000dd5b71ea4426f9bc09f00b44d177b7f78",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f3b961c_8311d9a7",
+        "filename": "src/interactors/UnregisterDevice.js",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-02-05T12:24:44Z",
+      "side": 1,
+      "message": "No, it was a mistake (already resolved).",
+      "parentUuid": "1c7fd613_ff1ee20d",
       "range": {
         "startLine": 16,
         "startChar": 29,
