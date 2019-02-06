@@ -121,6 +121,32 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async sendMessageToDevice(credentials, id, topic, payload) {
+    const uuid = await this.uuidAliasManager.resolve(id);
+    const device = await this.getDevice(credentials, credentials.uuid);
+    const sender = device.type === 'app' ? device.knot.router : credentials.uuid;
+    const request = {
+      metadata: {
+        jobType: 'SendMessage',
+        auth: {
+          uuid: credentials.uuid,
+          token: credentials.token,
+          as: sender,
+        },
+        fromUuid: sender,
+      },
+      data: {
+        devices: uuid,
+        topic,
+        payload,
+      },
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 204);
+    return JSON.parse(response.rawData);
+  }
+
   async broadcastMessage(credentials, topic, payload) {
     const request = {
       metadata: {

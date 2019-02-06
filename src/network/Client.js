@@ -60,7 +60,7 @@ class Client {
   }
 
   cloudMessageToEvent(message) {
-    const types = ['broadcast.sent', 'unregister.sent'];
+    const types = ['broadcast.sent', 'unregister.sent', 'message.received'];
     const routeData = _.chain(message.metadata.route)
       .filter(data => _.includes(types, data.type))
       .head()
