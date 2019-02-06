@@ -58,13 +58,14 @@ class Cloud {
     this.checkResponseHasError(response, 200);
   }
 
-  async getDevice(credentials, id) {
+  async getDevice(credentials, id, as) {
     const uuid = await this.uuidAliasManager.resolve(id);
     const request = {
       metadata: {
         jobType: 'GetDevice',
         auth: credentials,
         toUuid: uuid,
+        fromUuid: as,
       },
     };
 
@@ -118,6 +119,30 @@ class Cloud {
 
     const response = await this.sendRequest(request);
     this.checkResponseHasError(response, 201);
+    return JSON.parse(response.rawData);
+  }
+
+  async sendMessage(credentials, id, topic, payload, as) {
+    const uuid = await this.uuidAliasManager.resolve(id);
+    const request = {
+      metadata: {
+        jobType: 'SendMessage',
+        auth: {
+          uuid: credentials.uuid,
+          token: credentials.token,
+          as,
+        },
+        fromUuid: as,
+      },
+      data: {
+        devices: uuid,
+        topic,
+        payload,
+      },
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 204);
     return JSON.parse(response.rawData);
   }
 
