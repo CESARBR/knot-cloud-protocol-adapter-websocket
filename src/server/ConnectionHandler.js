@@ -25,6 +25,8 @@ class ConnectionHandler {
         .bind(this.deviceController)),
       data: this.createHandler(this.deviceController.publishData
         .bind(this.deviceController)),
+      getData: this.createHandler(this.deviceController.getData
+        .bind(this.deviceController)),
       setData: this.createHandler(this.deviceController.setData
         .bind(this.deviceController)),
     };

@@ -8,6 +8,7 @@ class DeviceController {
     createSessionTokenInteractor,
     activateInteractor,
     publishDataInteractor,
+    getDataInteractor,
     setDataInteractor,
     logger,
   ) {
@@ -19,6 +20,7 @@ class DeviceController {
     this.createSessionTokenInteractor = createSessionTokenInteractor;
     this.activateInteractor = activateInteractor;
     this.publishDataInteractor = publishDataInteractor;
+    this.getDataInteractor = getDataInteractor;
     this.setDataInteractor = setDataInteractor;
     this.logger = logger;
   }
@@ -128,6 +130,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in publish data (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async getData(request, responseHandler) {
+    try {
+      const response = await this.getDataInteractor.execute(request.id, request.data);
+      this.logger.info('\'getData\' sent');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed sending 'getData' (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
