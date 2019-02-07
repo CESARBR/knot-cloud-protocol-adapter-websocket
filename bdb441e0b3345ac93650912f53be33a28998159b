@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3621ed14_fbdcf961",
+        "filename": "src/interactors/GetData.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-07T15:39:55Z",
+      "side": 1,
+      "message": "Verify if it is really a get_data or a request_data",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 13
+      },
+      "revId": "bdb441e0b3345ac93650912f53be33a28998159b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
