@@ -46,6 +46,29 @@
       "revId": "bdb441e0b3345ac93650912f53be33a28998159b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cb61a9f_cf3b42d2",
+        "filename": "src/interactors/GetData.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-07T20:23:02Z",
+      "side": 1,
+      "message": "I don\u0027t think that we need to update the devices with a property anymore.\nThe thing connection (handled by connector) will receive the broadcast and the connector can update the thing in the Fog 1.0.\n\nWhat do you think?",
+      "range": {
+        "startLine": 17,
+        "startChar": 21,
+        "endLine": 17,
+        "endChar": 33
+      },
+      "revId": "bdb441e0b3345ac93650912f53be33a28998159b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
