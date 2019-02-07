@@ -22,6 +22,30 @@
       "revId": "bdb441e0b3345ac93650912f53be33a28998159b",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea510360_49fa5690",
+        "filename": "src/interactors/GetData.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-02-07T18:49:15Z",
+      "side": 1,
+      "message": "https://review.gerrithub.io/c/CESARBR/knot-cloud-websocket/+/443637/2/src/Client.js#72",
+      "parentUuid": "3621ed14_fbdcf961",
+      "range": {
+        "startLine": 1,
+        "startChar": 6,
+        "endLine": 1,
+        "endChar": 13
+      },
+      "revId": "bdb441e0b3345ac93650912f53be33a28998159b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
