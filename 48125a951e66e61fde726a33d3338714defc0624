@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb1e642f_8c0ebe1f",
+        "filename": "src/interactors/SetData.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T19:22:27Z",
+      "side": 1,
+      "message": "Let\u0027s use camelCase, it has been the default in our code (when not interacting with meshblu)",
+      "range": {
+        "startLine": 17,
+        "startChar": 64,
+        "endLine": 17,
+        "endChar": 72
+      },
+      "revId": "48125a951e66e61fde726a33d3338714defc0624",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
