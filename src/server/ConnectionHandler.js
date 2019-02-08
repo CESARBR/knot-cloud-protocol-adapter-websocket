@@ -23,6 +23,8 @@ class ConnectionHandler {
         .bind(this.deviceController)),
       activate: this.createHandler(this.deviceController.activateDevice
         .bind(this.deviceController)),
+      data: this.createHandler(this.deviceController.publishData
+        .bind(this.deviceController)),
     };
   }
 
