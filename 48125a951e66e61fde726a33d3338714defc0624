@@ -22,6 +22,29 @@
       "revId": "48125a951e66e61fde726a33d3338714defc0624",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "510ab42e_fa6200c0",
+        "filename": "src/server/ConnectionHandler.js",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:06:16Z",
+      "side": 1,
+      "message": "camelCase",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "48125a951e66e61fde726a33d3338714defc0624",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
