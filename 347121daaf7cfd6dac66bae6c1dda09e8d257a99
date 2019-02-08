@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9afc319e_1de13e7f",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "camelCase",
+      "range": {
+        "startLine": 27,
+        "startChar": 69,
+        "endLine": 27,
+        "endChar": 78
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "638910c9_bb29694e",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "camelCase (it will be changed on updateSchema in another issue)",
+      "range": {
+        "startLine": 32,
+        "startChar": 53,
+        "endLine": 32,
+        "endChar": 62
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5360cbb6_0cb112cc",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "camelCase",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6877e95e_2377f4f3",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "To make this validation (and the following), it might be safer to use lodash: https://lodash.com/docs/4.17.11#isNumber",
+      "range": {
+        "startLine": 40,
+        "startChar": 47,
+        "endLine": 40,
+        "endChar": 76
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b318437_f8f6fad7",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "Is it what you want?\n\nhttps://stackoverflow.com/questions/472418/why-is-4-not-an-instance-of-number",
+      "range": {
+        "startLine": 40,
+        "startChar": 12,
+        "endLine": 40,
+        "endChar": 43
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6010bb9d_85fc6f6c",
+        "filename": "src/server/ConnectionHandler.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-08T20:05:40Z",
+      "side": 1,
+      "message": "can be simply data",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "347121daaf7cfd6dac66bae6c1dda09e8d257a99",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
