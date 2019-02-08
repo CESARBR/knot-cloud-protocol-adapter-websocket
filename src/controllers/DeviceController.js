@@ -7,6 +7,7 @@ class DeviceController {
     updateSchemaInteractor,
     createSessionTokenInteractor,
     activateInteractor,
+    publishDataInteractor,
     logger,
   ) {
     this.updateMetadataInteractor = updateMetadataInteractor;
@@ -16,6 +17,7 @@ class DeviceController {
     this.updateSchemaInteractor = updateSchemaInteractor;
     this.createSessionTokenInteractor = createSessionTokenInteractor;
     this.activateInteractor = activateInteractor;
+    this.publishDataInteractor = publishDataInteractor;
     this.logger = logger;
   }
 
@@ -110,6 +112,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in activate device (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async publishData(request, responseHandler) {
+    try {
+      const response = await this.publishDataInteractor.execute(request.id, request.data);
+      this.logger.info('Data published');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in publish data (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
