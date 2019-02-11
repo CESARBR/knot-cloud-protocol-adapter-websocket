@@ -41,41 +41,41 @@ class UpdateSchema {
     // Defined here: https://github.com/CESARBR/knot-protocol-source
     const { error } = Joi.validate(schema, Joi.array().items(Joi.object().keys({
       /* eslint-disable newline-per-chained-call */
-      sensor_id: Joi.number().integer().min(0).max(0xff).required(),
-      type_id: Joi.alternatives().try(
+      sensorId: Joi.number().integer().min(0).max(0xff).required(),
+      typeId: Joi.alternatives().try(
         Joi.number().integer().min(0).max(0x15).required(),
         Joi.number().integer().min(0xfff0).max(0xfff2).required(),
         0xff10,
       ).required(),
       /* eslint-enable newline-per-chained-call */
-      value_type: Joi.alternatives()
-        .when('type_id', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: Joi.number().integer().min(1).max(4) })
-        .when('type_id', { is: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0x0A, 0x0B, 0x13, 0x15], then: 1 })
-        .when('type_id', { is: [0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x14], then: 2 })
+      valueType: Joi.alternatives()
+        .when('typeId', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: Joi.number().integer().min(1).max(4) })
+        .when('typeId', { is: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0x0A, 0x0B, 0x13, 0x15], then: 1 })
+        .when('typeId', { is: [0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x14], then: 2 })
         .required(),
       unit: Joi.alternatives()
-        .when('type_id', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: 0 })
-        .when('type_id', { is: 1, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 2, then: Joi.number().integer().min(1).max(2) })
-        .when('type_id', { is: 3, then: 1 })
-        .when('type_id', { is: 4, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 5, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 6, then: 1 })
-        .when('type_id', { is: 7, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 8, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 9, then: Joi.number().integer().min(1).max(4) })
-        .when('type_id', { is: 0x0A, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 0x0B, then: Joi.number().integer().min(1).max(4) })
-        .when('type_id', { is: 0x0C, then: Joi.number().integer().min(1).max(2) })
-        .when('type_id', { is: 0x0D, then: Joi.number().integer().min(1).max(4) })
-        .when('type_id', { is: 0x0E, then: Joi.number().integer().min(1).max(3) })
-        .when('type_id', { is: 0x0F, then: 1 })
-        .when('type_id', { is: 0x10, then: 1 })
-        .when('type_id', { is: 0x11, then: 1 })
-        .when('type_id', { is: 0x12, then: 1 })
-        .when('type_id', { is: 0x13, then: Joi.number().integer().min(1).max(4) })
-        .when('type_id', { is: 0x14, then: Joi.number().integer().min(1).max(6) })
-        .when('type_id', { is: 0x15, then: Joi.number().integer().min(1).max(6) })
+        .when('typeId', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: 0 })
+        .when('typeId', { is: 1, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 2, then: Joi.number().integer().min(1).max(2) })
+        .when('typeId', { is: 3, then: 1 })
+        .when('typeId', { is: 4, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 5, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 6, then: 1 })
+        .when('typeId', { is: 7, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 8, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 9, then: Joi.number().integer().min(1).max(4) })
+        .when('typeId', { is: 0x0A, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 0x0B, then: Joi.number().integer().min(1).max(4) })
+        .when('typeId', { is: 0x0C, then: Joi.number().integer().min(1).max(2) })
+        .when('typeId', { is: 0x0D, then: Joi.number().integer().min(1).max(4) })
+        .when('typeId', { is: 0x0E, then: Joi.number().integer().min(1).max(3) })
+        .when('typeId', { is: 0x0F, then: 1 })
+        .when('typeId', { is: 0x10, then: 1 })
+        .when('typeId', { is: 0x11, then: 1 })
+        .when('typeId', { is: 0x12, then: 1 })
+        .when('typeId', { is: 0x13, then: Joi.number().integer().min(1).max(4) })
+        .when('typeId', { is: 0x14, then: Joi.number().integer().min(1).max(6) })
+        .when('typeId', { is: 0x15, then: Joi.number().integer().min(1).max(6) })
         .required(),
       name: Joi.string().max(23).required(),
     }).required()).required(), { abortEarly: false });
