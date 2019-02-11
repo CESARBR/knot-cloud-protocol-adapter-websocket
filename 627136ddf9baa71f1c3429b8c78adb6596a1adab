@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79ab4c13_01f0a77d",
+        "filename": "src/interactors/UpdateSchema.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T14:36:46Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 35,
+        "startChar": 57,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "627136ddf9baa71f1c3429b8c78adb6596a1adab",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
