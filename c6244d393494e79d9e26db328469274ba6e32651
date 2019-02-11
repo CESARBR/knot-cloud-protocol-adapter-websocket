@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c38d584f_38bca6ea",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T19:07:25Z",
+      "side": 1,
+      "message": "getData",
+      "range": {
+        "startLine": 127,
+        "startChar": 26,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "c6244d393494e79d9e26db328469274ba6e32651",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9812c7d1_4bf9867c",
+        "filename": "src/controllers/DeviceController.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T19:07:25Z",
+      "side": 1,
+      "message": "getData",
+      "range": {
+        "startLine": 130,
+        "startChar": 41,
+        "endLine": 130,
+        "endChar": 49
+      },
+      "revId": "c6244d393494e79d9e26db328469274ba6e32651",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb919522_23413a11",
+        "filename": "src/interactors/GetData.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T19:07:25Z",
+      "side": 1,
+      "message": "Same as setData, it is a direct message",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "c6244d393494e79d9e26db328469274ba6e32651",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
