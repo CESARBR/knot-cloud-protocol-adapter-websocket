@@ -38,17 +38,17 @@ class PublishData {
 
     switch (schema.valueType) {
       case 1: // INTEGER
-        if (!_.isInteger(data.value)) {
+        if (!_.isInteger(Number(data.value))) {
           this.throwError('Value is not integer', 403);
         }
         break;
       case 2: // FLOAT
-        if (!_.isNumber(data.value)) {
+        if (!_.isNumber(Number(data.value)) || _.isNaN(Number(data.value))) {
           this.throwError('Value is not float', 403);
         }
         break;
       case 3: // BOOL
-        if (!_.isBoolean(data.value)) {
+        if (String(data.value) !== 'true' && String(data.value) !== 'false') {
           this.throwError('Value is not boolean', 403);
         }
         break;
