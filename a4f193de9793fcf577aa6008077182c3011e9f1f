@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02b3e6a5_3df85c7c",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T19:21:12Z",
+      "side": 1,
+      "message": "You can omit this, as isInteger already validates whether it is a number or not. Pay attention to this, because if _.isInteger didn\u0027t include _.isNumber, this validation wouldn\u0027t be what you need.",
+      "range": {
+        "startLine": 41,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "a4f193de9793fcf577aa6008077182c3011e9f1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ec77f50_aed3dd56",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-11T19:21:12Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "a4f193de9793fcf577aa6008077182c3011e9f1f",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
