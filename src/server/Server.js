@@ -1,3 +1,4 @@
+import http from 'http';
 import WebSocket from 'ws';
 
 class Server {
@@ -8,11 +9,32 @@ class Server {
   }
 
   async start() {
-    const server = new WebSocket.Server({ port: this.port });
-    server.on('connection', this.onConnection.bind(this));
-    server.on('error', this.onError.bind(this));
-    server.on('close', this.onClose.bind(this));
-    this.logger.info(`Listening on ${this.port}`);
+    const server = http.createServer();
+    server.on('request', this.onRequest.bind(this));
+
+    const wss = new WebSocket.Server({ server });
+    wss.on('connection', this.onConnection.bind(this));
+    wss.on('error', this.onError.bind(this));
+    wss.on('close', this.onClose.bind(this));
+
+    return new Promise((resolve) => {
+      server.listen(this.port, () => {
+        this.logger.info(`Listening on ${this.port}`);
+        resolve();
+      });
+    });
+  }
+
+  onRequest(request, response) {
+    if (request.url === '/healthcheck') {
+      response.writeHead(200);
+      response.write(JSON.stringify({ online: true }));
+      response.end();
+      return;
+    }
+
+    response.writeHead(404);
+    response.end();
   }
 
   async onConnection(socket) {
