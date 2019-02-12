@@ -9,4 +9,6 @@ COPY . .
 RUN npm run build
 RUN npm prune --production
 
+HEALTHCHECK CMD curl --fail http://localhost:80/healthcheck || exit 1
+
 CMD [ "npm", "start" ]
