@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19b47c32_a18a9e7f",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-12T21:23:55Z",
+      "side": 1,
+      "message": "Convertions bellow needed because data comes as a string",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
