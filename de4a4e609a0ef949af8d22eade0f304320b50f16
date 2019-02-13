@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63bf9905_0591b46e",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-13T18:57:02Z",
+      "side": 1,
+      "message": "I think sendMessage is enough. It is usually understood that there is a target (ToDevice) and we have `broadcastMessage` to make the contrast.",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "de4a4e609a0ef949af8d22eade0f304320b50f16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6479783d_4d5a297a",
+        "filename": "src/network/Cloud.js",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-13T18:57:02Z",
+      "side": 1,
+      "message": "This logic isn\u0027t part of the \"Cloud\"/network layer. It is part of the KNoT spec (which should be reflected in the interactors). Morever, the caller might already have the device at hand and we could avoid the getDevice call above.\n\nMove this to the interactor and add a field for the `as` parameter.",
+      "range": {
+        "startLine": 127,
+        "startChar": 19,
+        "endLine": 127,
+        "endChar": 80
+      },
+      "revId": "de4a4e609a0ef949af8d22eade0f304320b50f16",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
