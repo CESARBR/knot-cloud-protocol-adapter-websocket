@@ -70,6 +70,30 @@
       "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6032b6f_a3fd9ea2",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-13T17:57:42Z",
+      "side": 1,
+      "message": "If we keep this here, we are allowing the user to send \"10\" or \"true\" as an integer/boolean, independently of the connector. Not sure about the best policy. I tend to prefer to be more strict and allow only 10 or true as integer/boolean.",
+      "parentUuid": "3092fd41_a851a938",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
