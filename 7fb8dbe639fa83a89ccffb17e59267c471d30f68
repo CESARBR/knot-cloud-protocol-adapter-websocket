@@ -94,6 +94,30 @@
       "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce629aa0_b2c8b557",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-02-13T18:05:06Z",
+      "side": 1,
+      "message": "I agree with being more strict.",
+      "parentUuid": "f6032b6f_a3fd9ea2",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
