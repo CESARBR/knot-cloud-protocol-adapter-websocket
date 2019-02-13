@@ -46,6 +46,30 @@
       "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3092fd41_a851a938",
+        "filename": "src/interactors/PublishData.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-13T17:00:10Z",
+      "side": 1,
+      "message": "But for that case I don\u0027t know if the value should be converted in the connector service.\n\nBecause the message data listened by connector is in the format { sensor_id, value }, there is no value_type. To get the value_type we should get the device who sent the data and then filter the schema from the schemaList (which is exactly what the adapter is doing) to discovery which is the correct conversion (Number, Bool or String).",
+      "parentUuid": "f23118c3_cc848292",
+      "range": {
+        "startLine": 41,
+        "startChar": 32,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "7fb8dbe639fa83a89ccffb17e59267c471d30f68",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
