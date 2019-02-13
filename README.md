@@ -71,3 +71,11 @@ Containers built from the master branch and the published tags in this repositor
 ```
 docker run --env-file adapter.env -p 4000:80 -ti cesarbr/knot-cloud-protocol-adapter-websocket
 ```
+
+### Verify
+
+To verify if the service is running properly, execute:
+
+```
+curl http://<hostname>:<port>/healthcheck
+```
