@@ -122,6 +122,24 @@ class Cloud {
     return JSON.parse(response.rawData);
   }
 
+  async revokeSessionToken(credentials, id, token) {
+    const uuid = await this.uuidAliasManager.resolve(id);
+    const request = {
+      metadata: {
+        jobType: 'RevokeSessionToken',
+        toUuid: uuid,
+        auth: credentials,
+      },
+      data: {
+        token,
+      },
+    };
+
+    const response = await this.sendRequest(request);
+    this.checkResponseHasError(response, 204);
+    return JSON.parse(response.rawData);
+  }
+
   async sendMessage(credentials, id, topic, payload, as) {
     const uuid = await this.uuidAliasManager.resolve(id);
     const request = {
