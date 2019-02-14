@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "b6d28578_c9006a36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-14T18:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38892e4b_fb60d56e",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd15cf01_ac2070dd",
         "filename": "src/interactors/validateValueType.js",
         "patchSetId": 2
