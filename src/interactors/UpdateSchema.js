@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import _ from 'lodash';
+import throwError from './throwError';
 
 class UpdateSchema {
   constructor(sessionStore, cloud) {
@@ -12,23 +13,17 @@ class UpdateSchema {
     const { schema } = data;
 
     if (!session) {
-      this.throwError('Unauthorized', 401);
+      throwError('Unauthorized', 401);
     }
 
     if (!await this.isSessionOwnerThing(session)) {
-      this.throwError('Device has no schema', 400);
+      throwError('Device has no schema', 400);
     }
 
     this.validateSchema(schema);
     await this.cloud.updateDevice(session.credentials, session.credentials.uuid, { schema });
     await this.cloud.broadcastMessage(session.credentials, 'schema', { schema });
     return { type: 'updated' };
-  }
-
-  throwError(message, code) {
-    const error = Error(message);
-    error.code = code;
-    throw error;
   }
 
   async isSessionOwnerThing(session) {

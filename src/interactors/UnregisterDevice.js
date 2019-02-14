@@ -1,3 +1,5 @@
+import throwError from './throwError';
+
 class UnregisterDevice {
   constructor(sessionStore, cloud, uuidAliasManager) {
     this.sessionStore = sessionStore;
@@ -8,7 +10,7 @@ class UnregisterDevice {
   async execute(requestId, data) {
     const session = this.sessionStore.get(requestId);
     if (!session) {
-      this.throwError('Unauthorized', 401);
+      throwError('Unauthorized', 401);
     }
 
     await this.cloud.unregister(session.credentials, data.id);
@@ -16,12 +18,6 @@ class UnregisterDevice {
     await this.uuidAliasManager.remove(session.credentials, data.id);
 
     return { type: 'unregistered' };
-  }
-
-  throwError(message, code) {
-    const error = Error(message);
-    error.code = code;
-    throw error;
   }
 }
 
