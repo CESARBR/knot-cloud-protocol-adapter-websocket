@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "38892e4b_fb60d56e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-14T17:41:00Z",
+      "side": 1,
+      "message": "+1\n\nAlso you are not creating, but rather extracting. What are you extracting?",
+      "parentUuid": "d624ef42_45d46a04",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd15cf01_ac2070dd",
         "filename": "src/interactors/validateValueType.js",
         "patchSetId": 2
