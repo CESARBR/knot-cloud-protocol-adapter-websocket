@@ -6,6 +6,7 @@ class DeviceController {
     unregisterInteractor,
     updateSchemaInteractor,
     createSessionTokenInteractor,
+    revokeSessionTokenInteractor,
     activateInteractor,
     logger,
   ) {
@@ -15,6 +16,7 @@ class DeviceController {
     this.unregisterInteractor = unregisterInteractor;
     this.updateSchemaInteractor = updateSchemaInteractor;
     this.createSessionTokenInteractor = createSessionTokenInteractor;
+    this.revokeSessionTokenInteractor = revokeSessionTokenInteractor;
     this.activateInteractor = activateInteractor;
     this.logger = logger;
   }
@@ -96,6 +98,20 @@ class DeviceController {
       await responseHandler.send(response.type, response.data);
     } catch (error) {
       this.logger.error(`Failed in create token (${error.code || 500}): ${error.message}`);
+      await responseHandler.send('error', {
+        code: error.code || 500,
+        message: error.message,
+      });
+    }
+  }
+
+  async revokeSessionToken(request, responseHandler) {
+    try {
+      const response = await this.revokeSessionTokenInteractor.execute(request.id, request.data);
+      this.logger.info('Token revoked');
+      await responseHandler.send(response.type, response.data);
+    } catch (error) {
+      this.logger.error(`Failed in revoke token (${error.code || 500}): ${error.message}`);
       await responseHandler.send('error', {
         code: error.code || 500,
         message: error.message,
