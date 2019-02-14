@@ -33,6 +33,24 @@
       "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bac84c99_6a55b2ae",
+        "filename": "src/interactors/validateValueType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-02-14T16:55:10Z",
+      "side": 1,
+      "message": "This will be used in src/interactors/SetData.js.",
+      "parentUuid": "dd15cf01_ac2070dd",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
