@@ -69,6 +69,24 @@
       "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15e8ae27_36f8a4ed",
+        "filename": "src/interactors/validateValueType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-02-14T18:22:57Z",
+      "side": 1,
+      "message": "As discussed with João, he will need this function in set_data and get_data handler.\nSo I\u0027ve already put in a separated file",
+      "parentUuid": "dd15cf01_ac2070dd",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
