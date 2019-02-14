@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d624ef42_45d46a04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-02-14T13:32:43Z",
+      "side": 1,
+      "message": "missing something \"create functions to (be?) used in interactors\"?\nAlso, which functions are you creating and why?",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd15cf01_ac2070dd",
+        "filename": "src/interactors/validateValueType.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-02-14T13:32:43Z",
+      "side": 1,
+      "message": "This is only being used in src/interactors/PublishData.js, so why create a separate file for it?",
+      "revId": "3772983da128726f72c8b7d6ac7207add571a31c",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
