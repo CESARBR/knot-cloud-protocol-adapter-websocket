@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69714042_47a1c089",
+        "filename": "src/interactors/SetData.js",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2019-02-14T13:44:52Z",
+      "side": 1,
+      "message": "Just noticed one thing. If you specify a type, as in the spec, it is easier to filter the command, e.g.:\n\nswitch (payload.type) {\n  case \u0027setData\u0027:\n  ...\n  case \u0027getData\u0027:\n  ...\n  ...\n}\n\nIn contrast with:\n\nif (payload.getData) {\n} else if (payload.setData) {\n}\n\nMoveover, you can have conflicts with a field and a command name. For instance, if we define a command called \u0027data\u0027, we could never have a field called data in any command, otherwise it could be wrongly identified as a data command.\n\nThe command format can be:\n\n{ name: String, args: Array }\n\nRenamed `type` to `name` to make it look like a function. Later we can extend with `result` when we defined a better way to handle command results.",
+      "range": {
+        "startLine": 24,
+        "startChar": 68,
+        "endLine": 24,
+        "endChar": 86
+      },
+      "revId": "c5d604e1d1b9ca1ab35642583cc3fc621176cd05",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
