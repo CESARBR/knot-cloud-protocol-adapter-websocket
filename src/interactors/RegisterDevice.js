@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import Joi from 'joi';
+import throwError from './util/throwError';
 
 class RegisterDevice {
   constructor(sessionStore, cloud, uuidAliasManager) {
@@ -11,7 +12,7 @@ class RegisterDevice {
   async execute(requestId, properties) {
     const session = this.sessionStore.get(requestId);
     if (!session) {
-      this.throwError('Unauthorized', 401);
+      throwError('Unauthorized', 401);
     }
 
     const device = await this.createDevice(session, properties);
@@ -24,7 +25,7 @@ class RegisterDevice {
       id, type, name, active,
     } = properties;
     if (!type) {
-      this.throwError('\'type\' is required', 400);
+      throwError('\'type\' is required', 400);
     }
 
     let device;
@@ -40,7 +41,7 @@ class RegisterDevice {
         device = await this.registerThing(session, id, { name });
         break;
       default:
-        this.throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
+        throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
     }
 
     return device;
@@ -54,12 +55,6 @@ class RegisterDevice {
     return authenticatedDevice.type === 'gateway';
   }
 
-  throwError(message, code) {
-    const error = new Error(message);
-    error.code = code;
-    throw error;
-  }
-
   mapJoiError(error) {
     return `\n${_.chain(error.details).map(d => `- ${d.message}`).join('\n').value()}`;
   }
@@ -68,14 +63,14 @@ class RegisterDevice {
     const { error } = Joi.validate(id, Joi.string().length(16).hex().required());
     if (error) {
       const joiError = this.mapJoiError(error);
-      this.throwError(`ID '${id}' invalid: ${joiError}`, 400);
+      throwError(`ID '${id}' invalid: ${joiError}`, 400);
     }
   }
 
   async registerApp(session, options) {
     const user = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     if (!this.isSessionOwnerUser(user)) {
-      this.throwError('Only users can create apps', 400);
+      throwError('Only users can create apps', 400);
     }
 
     const app = await this.createApp(user, options);
@@ -87,7 +82,7 @@ class RegisterDevice {
   async registerGateway(session, options) {
     const user = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     if (!this.isSessionOwnerUser(user)) {
-      this.throwError('Only users can create gateways', 400);
+      throwError('Only users can create gateways', 400);
     }
 
     const gateway = await this.createGateway(user, options);
@@ -99,12 +94,12 @@ class RegisterDevice {
   async registerThing(session, id, options) {
     const device = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     if (!this.isSessionOwnerUser(device) && !this.isSessionOwnerGateway(device)) {
-      this.throwError('Only users or gateways can create things', 400);
+      throwError('Only users or gateways can create things', 400);
     }
 
     const devices = await this.cloud.getDevices(session.credentials, { id });
     if (devices.length > 0) {
-      this.throwError('Thing is already registered', 400);
+      throwError('Thing is already registered', 400);
     }
 
     const thing = await this.createThing(device, id, options);

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import throwError from './util/throwError';
 
 class UpdateMetadata {
   constructor(sessionStore, cloud) {
@@ -9,17 +10,11 @@ class UpdateMetadata {
   async execute(requestId, data) {
     const { credentials } = this.sessionStore.get(requestId);
     if (!credentials) {
-      this.throwError('Unauthorized', 401);
+      throwError('Unauthorized', 401);
     }
 
     await this.cloud.updateDevice(credentials, data.id, _.mapKeys(data.metadata, (value, key) => `metadata.${key}`));
     return { type: 'updated' };
-  }
-
-  throwError(message, code) {
-    const error = new Error(message);
-    error.code = code;
-    throw error;
   }
 }
 

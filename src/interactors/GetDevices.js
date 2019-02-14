@@ -1,3 +1,5 @@
+import throwError from './util/throwError';
+
 class GetDevices {
   constructor(sessionStore, cloud) {
     this.sessionStore = sessionStore;
@@ -7,17 +9,11 @@ class GetDevices {
   async execute(requestId, query) {
     const session = this.sessionStore.get(requestId);
     if (!session) {
-      this.generateError('Unauthorized', 401);
+      throwError('Unauthorized', 401);
     }
 
     const devices = await this.cloud.getDevices(session.credentials, query);
     return { type: 'devices', data: devices };
-  }
-
-  generateError(message, code) {
-    const error = new Error(message);
-    error.code = code;
-    throw error;
   }
 }
 
