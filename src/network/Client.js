@@ -73,7 +73,7 @@ class Client {
     };
 
     if (routeData.type === 'unregister.sent') {
-      event.type = 'unregister';
+      event.type = 'unregistered';
     } else {
       event.type = message.data.topic;
       event.data.payload = message.data.payload;
