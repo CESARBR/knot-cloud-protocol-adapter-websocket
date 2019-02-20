@@ -13,9 +13,12 @@ class UnregisterDevice {
       throwError('Unauthorized', 401);
     }
 
+    const device = await this.cloud.getDevice(session.credentials, data.id);
     await this.cloud.unregister(session.credentials, data.id);
-    this.sessionStore.removeByUuid(await this.uuidAliasManager.resolve(data.id));
-    await this.uuidAliasManager.remove(session.credentials, data.id);
+    this.sessionStore.removeByUuid(session.uuid);
+    if (device.type === 'thing') {
+      await this.uuidAliasManager.remove(session.credentials, data.id);
+    }
 
     return { type: 'unregistered' };
   }
