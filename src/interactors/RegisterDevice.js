@@ -156,6 +156,9 @@ class RegisterDevice {
           configure: {
             update: [{ uuid: user.uuid }],
           },
+          broadcast: {
+            sent: [{ uuid: user.knot.router }],
+          },
         },
       },
     });
@@ -226,6 +229,9 @@ class RegisterDevice {
 
   async connectRouterToGateway(session, user, gateway) {
     await this.givePermission(session, user.knot.router, gateway.uuid, 'configure.update');
+
+    await this.subscribeOwn(session, gateway.uuid, 'broadcast.received');
+    await this.subscribe(session, gateway.uuid, user.knot.router, 'broadcast.sent');
   }
 
   async connectRouterToThing(session, device, thing) {
