@@ -126,10 +126,20 @@ class RegisterDevice {
         version: '2.0.0',
         whitelists: {
           discover: {
-            view: [{ uuid: user.uuid }],
+            view: [
+              { uuid: user.knot.router },
+              { uuid: user.uuid },
+            ],
           },
           configure: {
-            update: [{ uuid: user.uuid }],
+            update: [
+              { uuid: user.knot.router },
+              { uuid: user.uuid },
+            ],
+            sent: [{ uuid: user.knot.router }],
+          },
+          unregister: {
+            sent: [{ uuid: user.knot.router }],
           },
         },
       },
@@ -151,12 +161,22 @@ class RegisterDevice {
         version: '2.0.0',
         whitelists: {
           discover: {
-            view: [{ uuid: user.uuid }],
+            view: [
+              { uuid: user.knot.router },
+              { uuid: user.uuid },
+            ],
           },
           configure: {
-            update: [{ uuid: user.uuid }],
+            update: [
+              { uuid: user.knot.router },
+              { uuid: user.uuid },
+            ],
+            sent: [{ uuid: user.knot.router }],
           },
           broadcast: {
+            sent: [{ uuid: user.knot.router }],
+          },
+          unregister: {
             sent: [{ uuid: user.knot.router }],
           },
         },
@@ -221,6 +241,7 @@ class RegisterDevice {
     await this.subscribeOwn(session, app.uuid, 'unregister.received');
     await this.subscribe(session, user.knot.router, app.uuid, 'broadcast.received');
     await this.subscribe(session, user.knot.router, app.uuid, 'unregister.received');
+    await this.subscribe(session, app.uuid, user.knot.router, 'unregister.sent');
 
     await this.givePermission(session, user.knot.router, app.uuid, 'message.as');
     await this.givePermission(session, user.knot.router, app.uuid, 'discover.as');
@@ -231,7 +252,9 @@ class RegisterDevice {
     await this.givePermission(session, user.knot.router, gateway.uuid, 'configure.update');
 
     await this.subscribeOwn(session, gateway.uuid, 'broadcast.received');
+    await this.subscribe(session, user.knot.router, gateway.uuid, 'unregister.received');
     await this.subscribe(session, gateway.uuid, user.knot.router, 'broadcast.sent');
+    await this.subscribe(session, gateway.uuid, user.knot.router, 'unregister.sent');
   }
 
   async connectRouterToThing(session, device, thing) {
