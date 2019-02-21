@@ -55,18 +55,6 @@ class RegisterDevice {
     return authenticatedDevice.type === 'gateway';
   }
 
-  mapJoiError(error) {
-    return `\n${_.chain(error.details).map(d => `- ${d.message}`).join('\n').value()}`;
-  }
-
-  validateId(id) {
-    const { error } = Joi.validate(id, Joi.string().length(16).hex().required());
-    if (error) {
-      const joiError = this.mapJoiError(error);
-      throwError(`ID '${id}' invalid: ${joiError}`, 400);
-    }
-  }
-
   async registerApp(session, options) {
     const user = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     if (!this.isSessionOwnerUser(user)) {
@@ -92,6 +80,12 @@ class RegisterDevice {
   }
 
   async registerThing(session, id, options) {
+    if (!id) {
+      throwError('\'id\' is required', 400);
+    }
+
+    this.validateId(id);
+
     const device = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
     if (!this.isSessionOwnerUser(device) && !this.isSessionOwnerGateway(device)) {
       throwError('Only users or gateways can create things', 400);
@@ -111,6 +105,18 @@ class RegisterDevice {
     );
 
     return thing;
+  }
+
+  validateId(id) {
+    const { error } = Joi.validate(id, Joi.string().length(16).hex().required());
+    if (error) {
+      const joiError = this.mapJoiError(error);
+      throwError(`ID '${id}' invalid: ${joiError}`, 400);
+    }
+  }
+
+  mapJoiError(error) {
+    return `\n${_.chain(error.details).map(d => `- ${d.message}`).join('\n').value()}`;
   }
 
   async createApp(user, options) {
