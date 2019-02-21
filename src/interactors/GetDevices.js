@@ -1,4 +1,24 @@
+import _ from 'lodash';
 import throwError from './throwError';
+
+// TODO:
+// Remove 'uuid' and use only 'knot.id'
+function mapDevice(device) {
+  return _.pick(device, [
+    'type',
+    'metadata',
+    'knot.active',
+    'knot.gateways',
+    'knot.id',
+    'uuid',
+  ]);
+}
+
+function filterDevices(devices, self) {
+  return devices
+    .filter(device => !(device.type === 'router' || !device.type || device.uuid === self))
+    .map(mapDevice);
+}
 
 class GetDevices {
   constructor(sessionStore, cloud) {
@@ -13,7 +33,7 @@ class GetDevices {
     }
 
     const devices = await this.cloud.getDevices(session.credentials, query);
-    return { type: 'devices', data: devices };
+    return { type: 'devices', data: filterDevices(devices, session.credentials.uuid) };
   }
 }
 
