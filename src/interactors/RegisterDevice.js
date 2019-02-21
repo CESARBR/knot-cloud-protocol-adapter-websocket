@@ -63,6 +63,8 @@ class RegisterDevice {
 
     const app = await this.createApp(user, options);
     await this.connectRouterToApp(session, user, app);
+    await this.cloud.updateDevice(session.credentials, app.uuid, { 'knot.id': app.uuid });
+    app.knot.id = app.uuid;
 
     return app;
   }
@@ -75,6 +77,8 @@ class RegisterDevice {
 
     const gateway = await this.createGateway(user, options);
     await this.connectRouterToGateway(session, user, gateway);
+    await this.cloud.updateDevice(session.credentials, gateway.uuid, { 'knot.id': gateway.uuid });
+    gateway.knot.id = gateway.uuid;
 
     return gateway;
   }
@@ -193,11 +197,11 @@ class RegisterDevice {
   async createThing(device, id, options) {
     const params = {
       type: 'thing',
-      id,
       metadata: {
         name: options.name,
       },
       knot: {
+        id,
         gateways: [],
       },
       meshblu: {
