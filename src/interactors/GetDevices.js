@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import flatten from 'flat';
 import throwError from './throwError';
 
 // TODO:
@@ -12,6 +13,26 @@ function mapDevice(device) {
     'knot.id',
     'uuid',
   ]);
+}
+
+function hasHiddenProperties(query) {
+  const hiddenProperties = [
+    'online',
+    'knot.router',
+    'meshblu',
+    'uuid',
+    'token',
+  ];
+  const flatQuery = flatten(query || {}); // { a: { b: true } } -> { 'a.b': true }
+  return !_.chain(flatQuery)
+    .keys() // -> ['a.b']
+    .filter(key => _.some(
+      hiddenProperties,
+      // equals 'a' or start with 'a.'
+      property => (key === property || _.startsWith(key, `${property}.`)),
+    ))
+    .isEmpty()
+    .value();
 }
 
 function filterDevices(devices, self) {
@@ -30,6 +51,11 @@ class GetDevices {
     const session = this.sessionStore.get(requestId);
     if (!session) {
       throwError('Unauthorized', 401);
+    }
+
+    if (hasHiddenProperties(query)) {
+      // act like it is filtering for a non-existent field
+      return { type: 'devices', data: [] };
     }
 
     const devices = await this.cloud.getDevices(session.credentials, query);
