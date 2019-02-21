@@ -44,7 +44,14 @@ class RegisterDevice {
         throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
     }
 
-    return device;
+    return _.pick(device, [
+      'type',
+      'metadata',
+      'knot.active',
+      'knot.gateways',
+      'knot.id',
+      'token',
+    ]);
   }
 
   isSessionOwnerUser(authenticatedDevice) {
