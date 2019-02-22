@@ -42,6 +42,19 @@ class UuidAliasManager {
       });
     });
   }
+
+  async reverseLookup(uuid) {
+    return new Promise((resolve, reject) => {
+      this.uuidAliasResolver.reverseLookup(uuid, (error, aliases) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+
+        resolve(aliases);
+      });
+    });
+  }
 }
 
 export default UuidAliasManager;
