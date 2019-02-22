@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class ConnectionHandler {
   constructor(id, authenticationController, deviceController, client, cloud, logger) {
     this.id = id;
@@ -73,12 +75,36 @@ class ConnectionHandler {
 
   onCloudMessage(message) {
     this.logger.debug(`Message: ${JSON.stringify(message, null, 2)}`);
-    const event = this.client.cloudMessageToEvent(message);
+    const event = this.cloudMessageToEvent(message);
+    this.logger.info(`Forwarding '${event.type}' sent by '${event.data.from}'`);
     this.client.send(event.type, event.data);
   }
 
   createHandler(controllerMethod) {
     return async data => controllerMethod({ id: this.id, data }, this.client);
+  }
+
+  cloudMessageToEvent(message) {
+    const types = ['broadcast.sent', 'unregister.sent', 'message.received'];
+    const routeData = _.chain(message.metadata.route)
+      .filter(data => _.includes(types, data.type))
+      .head()
+      .value();
+
+    const event = {
+      data: {
+        from: routeData.from,
+      },
+    };
+
+    if (routeData.type === 'unregister.sent') {
+      event.type = 'unregistered';
+    } else {
+      event.type = message.data.topic;
+      event.data.payload = message.data.payload;
+    }
+
+    return event;
   }
 }
 

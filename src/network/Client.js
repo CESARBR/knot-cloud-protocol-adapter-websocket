@@ -58,29 +58,6 @@ class Client {
     }
     return event;
   }
-
-  cloudMessageToEvent(message) {
-    const types = ['broadcast.sent', 'unregister.sent', 'message.received'];
-    const routeData = _.chain(message.metadata.route)
-      .filter(data => _.includes(types, data.type))
-      .head()
-      .value();
-
-    const event = {
-      data: {
-        from: routeData.from,
-      },
-    };
-
-    if (routeData.type === 'unregister.sent') {
-      event.type = 'unregistered';
-    } else {
-      event.type = message.data.topic;
-      event.data.payload = message.data.payload;
-    }
-
-    return event;
-  }
 }
 
 export default Client;
