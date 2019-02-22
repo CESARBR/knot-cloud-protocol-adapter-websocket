@@ -28,7 +28,7 @@ class UpdateSchema {
 
   async isSessionOwnerThing(session) {
     const device = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
-    return device.type === 'thing';
+    return device.type === 'knot:thing';
   }
 
   validateSchema(schema) {
