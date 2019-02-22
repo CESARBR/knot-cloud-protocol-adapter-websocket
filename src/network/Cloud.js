@@ -1,4 +1,5 @@
 import { promisify } from 'util';
+import _ from 'lodash';
 
 class Cloud {
   constructor(requester, messenger, uuidAliasManager) {
@@ -237,17 +238,39 @@ class Cloud {
   }
 
   on(type, listener) {
-    this.messenger.on(type, (message) => {
-      const parsedMessage = {
-        metadata: message.metadata,
-      };
-      try {
-        parsedMessage.data = JSON.parse(message.rawData);
-      } catch (e) {
-        parsedMessage.rawData = message.rawData;
-      }
+    this.messenger.on(type, async (message) => {
+      const parsedMessage = await this.parseMessage(message);
       listener(parsedMessage);
     });
+  }
+
+  async parseMessage(message) {
+    const data = this.parseData(message.rawData);
+    const metadata = await this.parseMetadata(message.metadata);
+    return {
+      metadata,
+      data,
+    };
+  }
+
+  parseData(rawData) {
+    try {
+      return JSON.parse(rawData);
+    } catch (e) {
+      return rawData;
+    }
+  }
+
+  async parseMetadata(metadata) {
+    return {
+      responseId: metadata.responseId,
+      route: await Promise.all(metadata.route.map(async hop => ({
+        // reverseLookup returns an array of aliases, but we are creation only one
+        from: _.head(await this.uuidAliasManager.reverseLookup(hop.from)) || hop.from,
+        to: _.head(await this.uuidAliasManager.reverseLookup(hop.to)) || hop.to,
+        type: hop.type,
+      }))),
+    };
   }
 }
 
