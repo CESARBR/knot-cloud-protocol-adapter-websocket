@@ -11,7 +11,6 @@ function mapDevice(device) {
     'knot.active',
     'knot.gateways',
     'knot.id',
-    'uuid',
   ]);
 }
 
