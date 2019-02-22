@@ -103,7 +103,7 @@ class RegisterDevice {
       throwError('Only users or gateways can create things', 400);
     }
 
-    const devices = await this.cloud.getDevices(session.credentials, { id });
+    const devices = await this.cloud.getDevices(session.credentials, { 'knot.id': id });
     if (devices.length > 0) {
       throwError('Thing is already registered', 400);
     }
