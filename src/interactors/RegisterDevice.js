@@ -16,7 +16,8 @@ class RegisterDevice {
     }
 
     const device = await this.createDevice(session, properties);
-    await this.cloud.broadcastMessage(session.credentials, 'registered', { device });
+    const eventDevice = _.omit(device, 'token');
+    await this.cloud.broadcastMessage(session.credentials, 'registered', eventDevice);
     return { type: 'registered', data: device };
   }
 
