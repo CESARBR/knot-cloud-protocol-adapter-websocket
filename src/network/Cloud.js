@@ -48,7 +48,7 @@ class Cloud {
         jobType: 'FindAndUpdateDevice',
         auth: credentials,
         toUuid: uuid,
-        fromUuid: device.type === 'app' ? device.knot.router : credentials.uuid,
+        fromUuid: device.type === 'knot:app' ? device.knot.router : credentials.uuid,
       },
       data: {
         $set: properties,
@@ -81,7 +81,7 @@ class Cloud {
       metadata: {
         jobType: 'SearchDevices',
         auth: credentials,
-        fromUuid: device.type === 'app' ? device.knot.router : credentials.uuid,
+        fromUuid: device.type === 'knot:app' ? device.knot.router : credentials.uuid,
       },
       data: query,
     };

@@ -16,7 +16,7 @@ class UnregisterDevice {
     const device = await this.cloud.getDevice(session.credentials, data.id);
     await this.cloud.unregister(session.credentials, data.id);
     this.sessionStore.removeByUuid(session.uuid);
-    if (device.type === 'thing') {
+    if (device.type === 'knot:thing') {
       await this.uuidAliasManager.remove(session.credentials, data.id);
     }
 

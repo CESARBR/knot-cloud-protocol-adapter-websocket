@@ -32,17 +32,17 @@ class RegisterDevice {
     let device;
 
     switch (type) {
-      case 'app':
+      case 'knot:app':
         device = await this.registerApp(session, { name });
         break;
-      case 'gateway':
+      case 'knot:gateway':
         device = await this.registerGateway(session, { name, active });
         break;
-      case 'thing':
+      case 'knot:thing':
         device = await this.registerThing(session, id, { name });
         break;
       default:
-        throwError('\'type\' should be \'gateway\', \'app\' or \'thing\'', 400);
+        throwError('\'type\' should be \'knot:gateway\', \'knot:app\' or \'knot:thing\'', 400);
     }
 
     return _.pick(device, [
@@ -60,7 +60,7 @@ class RegisterDevice {
   }
 
   isSessionOwnerGateway(authenticatedDevice) {
-    return authenticatedDevice.type === 'gateway';
+    return authenticatedDevice.type === 'knot:gateway';
   }
 
   async registerApp(session, options) {
@@ -133,7 +133,7 @@ class RegisterDevice {
 
   async createApp(user, options) {
     return this.cloud.registerDevice({
-      type: 'app',
+      type: 'knot:app',
       metadata: {
         name: options.name,
       },
@@ -166,7 +166,7 @@ class RegisterDevice {
 
   async createGateway(user, options) {
     return this.cloud.registerDevice({
-      type: 'gateway',
+      type: 'knot:gateway',
       metadata: {
         name: options.name,
       },
@@ -204,7 +204,7 @@ class RegisterDevice {
 
   async createThing(device, id, options) {
     const params = {
-      type: 'thing',
+      type: 'knot:thing',
       metadata: {
         name: options.name,
       },
@@ -241,7 +241,7 @@ class RegisterDevice {
       },
     };
 
-    if (device.type === 'gateway') {
+    if (device.type === 'knot:gateway') {
       params.knot.gateways.push(device.uuid);
       params.meshblu.whitelists.discover.view.push({ uuid: device.knot.user });
       params.meshblu.whitelists.configure.update.push({ uuid: device.knot.user });
