@@ -74,7 +74,6 @@ class ConnectionHandler {
   }
 
   onCloudMessage(message) {
-    this.logger.debug(`Message: ${JSON.stringify(message, null, 2)}`);
     const event = this.cloudMessageToEvent(message);
     this.logger.info(`Forwarding '${event.type}' sent by '${event.data.from}'`);
     this.client.send(event.type, event.data);
