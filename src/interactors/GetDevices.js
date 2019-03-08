@@ -2,8 +2,6 @@ import _ from 'lodash';
 import flatten from 'flat';
 import throwError from './throwError';
 
-// TODO:
-// Remove 'uuid' and use only 'knot.id'
 function mapDevice(device) {
   return _.pick(device, [
     'type',
@@ -11,6 +9,7 @@ function mapDevice(device) {
     'knot.active',
     'knot.gateways',
     'knot.id',
+    'schema',
   ]);
 }
 
