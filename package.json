@@ -1,6 +1,6 @@
 {
   "name": "@cesarbr/knot-cloud-protocol-adapter-websocket",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "KNoT Cloud WebSocket protocol adapter",
   "repository": {
     "type": "git",
