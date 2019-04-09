@@ -23,7 +23,7 @@ class RegisterDevice {
 
   async createDevice(session, properties) {
     const {
-      id, type, name, active,
+      id, type, name, active, isThingManager,
     } = properties;
     if (!type) {
       throwError('\'type\' is required', 400);
@@ -33,7 +33,7 @@ class RegisterDevice {
 
     switch (type) {
       case 'knot:app':
-        device = await this.registerApp(session, { name });
+        device = await this.registerApp(session, { name, isThingManager });
         break;
       case 'knot:gateway':
         device = await this.registerGateway(session, { name, active });
@@ -49,10 +49,17 @@ class RegisterDevice {
       'type',
       'metadata',
       'knot.active',
+      'knot.isThingManager',
       'knot.gateways',
       'knot.id',
       'token',
     ]);
+  }
+
+  canCreateThings(device) {
+    return this.isSessionOwnerUser(device)
+    || this.isSessionOwnerGateway(device)
+    || this.isThingManagerApp(device);
   }
 
   isSessionOwnerUser(authenticatedDevice) {
@@ -61,6 +68,10 @@ class RegisterDevice {
 
   isSessionOwnerGateway(authenticatedDevice) {
     return authenticatedDevice.type === 'knot:gateway';
+  }
+
+  isThingManagerApp(authenticatedDevice) {
+    return authenticatedDevice.type === 'knot:app' && authenticatedDevice.knot.isThingManager;
   }
 
   async registerApp(session, options) {
@@ -99,8 +110,9 @@ class RegisterDevice {
     this.validateId(id);
 
     const device = await this.cloud.getDevice(session.credentials, session.credentials.uuid);
-    if (!this.isSessionOwnerUser(device) && !this.isSessionOwnerGateway(device)) {
-      throwError('Only users or gateways can create things', 400);
+
+    if (!this.canCreateThings(device)) {
+      throwError('Only users, gateways or allowed apps can create things', 400);
     }
 
     const devices = await this.cloud.getDevices(session.credentials, { 'knot.id': id });
@@ -139,6 +151,7 @@ class RegisterDevice {
       },
       knot: {
         router: user.knot.router,
+        isThingManager: options.isThingManager || false,
       },
       meshblu: {
         version: '2.0.0',
@@ -251,6 +264,10 @@ class RegisterDevice {
   }
 
   async connectRouterToApp(session, user, app) {
+    if (app.knot.isThingManager) {
+      await this.givePermission(session, user.knot.router, app.uuid, 'configure.update');
+    }
+
     await this.givePermission(session, user.knot.router, app.uuid, 'broadcast.received');
     await this.givePermission(session, user.knot.router, app.uuid, 'unregister.received');
     await this.givePermission(session, user.knot.router, app.uuid, 'configure.received');
