@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5301be2_a666a122",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013096
+      },
+      "writtenOn": "2019-04-12T14:08:16Z",
+      "side": 1,
+      "message": "Maybe adminThing or isAdmin is better? What do you think?",
+      "range": {
+        "startLine": 26,
+        "startChar": 30,
+        "endLine": 26,
+        "endChar": 45
+      },
+      "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
