@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4fac362d_70ce2ae3",
+        "filename": "src/interactors/GetDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-04-16T17:11:55Z",
+      "side": 1,
+      "message": "See comments on previous patch.",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "e3ee4bb18a0c814172461754c7f6e56babec1ee2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
