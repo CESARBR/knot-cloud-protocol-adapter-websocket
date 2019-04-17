@@ -98,6 +98,9 @@ class ConnectionHandler {
 
     if (routeData.type === 'unregister.sent') {
       event.type = 'unregistered';
+      // As the device was already unregistered, reverse lookup returned nothing.
+      // We can still recover the KNoT ID from the message.
+      event.data.from = message.data.knot.id;
     } else {
       event.type = message.data.topic;
       event.data.payload = message.data.payload;
