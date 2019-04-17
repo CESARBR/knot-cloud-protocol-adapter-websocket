@@ -46,6 +46,23 @@
       "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72ceb2a_2d44401b",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1015148
+      },
+      "writtenOn": "2019-04-17T16:44:12Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this permission be granted only if the App is allowed to manage things and revoked when the user revokes?",
+      "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
     }
   ]
 }
