@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "587c98ee_76fd9563",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-04-18T20:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c5c99bd_7e242f05",
+      "range": {
+        "startLine": 26,
+        "startChar": 30,
+        "endLine": 26,
+        "endChar": 45
+      },
+      "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "212fbaea_32a7a198",
         "filename": "src/interactors/RegisterDevice.js",
         "patchSetId": 1
@@ -87,6 +111,24 @@
       "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c888b474_e8fa154b",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-04-18T20:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "212fbaea_32a7a198",
+      "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +161,23 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "c72ceb2a_2d44401b",
+      "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93a1e231_56edc423",
+        "filename": "src/interactors/RegisterDevice.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1013169
+      },
+      "writtenOn": "2019-04-18T20:10:25Z",
+      "side": 1,
+      "message": "As I\u0027ve discussed with @figueredo, we will allow the revoke only in the future along with a specific command to allow/revoke this ability to manage things.",
       "revId": "0c4cb76106643f11e0ccf4e87a4a2c2729a6d363",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": true
