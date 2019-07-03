@@ -13,8 +13,8 @@ class GetData {
     }
 
     const authDevice = await this.cloud.getDevice(credentials, credentials.uuid);
-    if (authDevice.type !== 'knot:app') {
-      throwError('Only apps can send \'getData\'', 400);
+    if (authDevice.type !== 'knot:app' && authDevice.type !== 'knot:users') {
+      throwError('Only apps and users can send \'getData\'', 400);
     }
 
     await this.cloud.sendMessage(credentials, data.id, 'command', { name: 'getData', args: data.sensorIds }, authDevice.knot.router);
