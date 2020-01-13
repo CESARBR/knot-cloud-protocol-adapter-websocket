@@ -38,7 +38,7 @@ class UpdateSchema {
       /* eslint-disable newline-per-chained-call */
       sensorId: Joi.number().integer().min(0).max(0xff).required(),
       typeId: Joi.alternatives().try(
-        Joi.number().integer().min(0).max(0x16).required(),
+        Joi.number().integer().min(0).max(0x17).required(),
         Joi.number().integer().min(0xfff0).max(0xfff2).required(),
         0xff10,
       ).required(),
@@ -46,7 +46,7 @@ class UpdateSchema {
       valueType: Joi.alternatives()
         .when('typeId', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: Joi.number().integer().min(1).max(4) })
         .when('typeId', { is: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0x0A, 0x0B, 0x13, 0x15], then: 1 })
-        .when('typeId', { is: [0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x16], then: 2 })
+        .when('typeId', { is: [0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x14, 0x16, 0x17], then: 2 })
         .required(),
       unit: Joi.alternatives()
         .when('typeId', { is: [0, 0xfff0, 0xfff1, 0xfff2, 0xff10], then: 0 })
@@ -72,6 +72,7 @@ class UpdateSchema {
         .when('typeId', { is: 0x14, then: Joi.number().integer().min(1).max(6) })
         .when('typeId', { is: 0x15, then: Joi.number().integer().min(1).max(6) })
         .when('typeId', { is: 0x16, then: 1 })
+        .when('typeId', { is: 0x17, then: Joi.number().integer().min(1).max(2) })
         .required(),
       name: Joi.string().max(23).required(),
     }).required()).required(), { abortEarly: false });
